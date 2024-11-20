@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/panel1.css';
 import logo from '../assets/images/mifacturaperublanco.png';
-
+import ListaProductosp1 from './ListaProductosp1';
 
 function Panel1() {
     return (
@@ -21,19 +21,7 @@ function Panel1() {
                         <button className="categoria">SNACK</button>
                         <button className="categoria">LIMPIEZA</button>
                     </div>
-                    <div className="productos">
-                        {Array(16).fill().map((_, index) => (
-                            <div className="producto" key={index}>
-                                <div className="producto-info">
-                                    <img src={`../images/sporade.png`} alt={`Producto ${index + 1}`} className="producto-imagen" />
-                                </div>
-                                <div className="producto-precio-container">
-                                    <p className="producto-precio">S/ 10.00</p>
-                                    <h3 className="producto-nombre">Producto {index + 1}</h3>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <ListaProductosp1 />
                 </div>
 
                 <div className="section-right2">
