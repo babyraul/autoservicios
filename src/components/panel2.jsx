@@ -79,7 +79,7 @@ function Panel2() {
         </div>
       </main>
       <footer className="footer3">
-        <Link to="/panel1" className="btn-back3" style={{ marginRight: '10px' }}>ATRAS</Link>
+        <Link to="/productos" className="btn-back3" style={{ marginRight: '10px' }}>ATRAS</Link>
         <div className="cliente3">
           <h2><span className="static-text">Cliente:</span> MARIANO ANTONIO SILVA ROJAS</h2>
           <h2><span className="static-text">Nº Documento:</span> 758962415</h2>
