@@ -200,7 +200,7 @@ const IdentifyClient = () => {
                 </div>
             </header>
             <main>
-                <div>
+                <div className="identification-form">
                     <label>
                         <input
                             type="radio"
@@ -274,11 +274,7 @@ const IdentifyClient = () => {
                 </div>
             </main>
             <footer className="footer3">
-                <Link to="/productos" className="btn-back3" state={{ items, totales, clientData }} style={{ marginRight: '10px' }}>ATRAS</Link>
-                { !!clientData && <div className="cliente3">
-                    <h2><span className="static-text">Cliente:</span> { clientName }</h2>
-                    <h2><span className="static-text">Nº Documento:</span> { docNumber }</h2>
-                </div> }
+                <Link ></Link>
                 <Link
                         to="/checkout"
                         className="btn-continue3"

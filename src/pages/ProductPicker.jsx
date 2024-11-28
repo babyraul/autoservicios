@@ -15,6 +15,11 @@ const ProductPicker = () => {
 
     const location = useLocation();
 
+    const removeItem = (product) => {
+        const filteredItems = items.filter((item) => item.IdPresentacion !== product.IdPresentacion);
+        setItems(filteredItems);
+    };
+
     useEffect(() => {
         const {items, totales} = location.state || {};
 
@@ -91,11 +96,11 @@ const ProductPicker = () => {
         </div>
         <div className="content">
             <div className="section-left2">
-                <PublicProductPicker onChooseProduct={onChooseProduct}/>
+                <PublicProductPicker onChooseProduct={onChooseProduct} onRemoveItem={removeItem} />
             </div>
 
             <div className="section-right2">
-                <PublicProductsSummary items={items} onUpdateQuantity={onUpdateQuantity}/>
+                <PublicProductsSummary items={items} onUpdateQuantity={onUpdateQuantity} onRemoveItem={removeItem} />
             </div>
         </div>
         <footer className="footer2">
