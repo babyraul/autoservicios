@@ -5,7 +5,7 @@ import { decimalAdjust } from "../global";
 
 const PublicTotalViewer = ({ totales, items, clientData, prev, next }) => {
     return <>
-        <Link to={prev} className="btn-back2">ATRAS</Link>
+        { !!prev && <Link to={prev} className="btn-back2">ATRAS</Link> }
 
         <div className="total-container">
             <h2 className="total">TOTAL A PAGAR</h2>

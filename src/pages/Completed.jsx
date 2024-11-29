@@ -93,7 +93,7 @@ const Completed = () => {
         }
         
         <footer className="footer5">
-            <PublicTotalViewer prev="/cliente" next="/" totales={totales} items={items}/>
+            <PublicTotalViewer prev={null} next="/" totales={totales} items={items}/>
         </footer>
     </div>
 }
