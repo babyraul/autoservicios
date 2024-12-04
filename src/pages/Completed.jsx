@@ -93,9 +93,6 @@ const Completed = () => {
         }
         
         <footer className="footer5">
-                <Link></Link>
-                <Link></Link>
-                <Link></Link>
             <PublicTotalViewer prev={null} next="/" totales={totales} items={items}/>
         </footer>
     </div>

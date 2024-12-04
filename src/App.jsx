@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css'; 
 import logo from './assets/images/mifacturaperublanco.png'; 
-import empresaLogo from './assets/images/milka-removebg-preview.png';
+import logoempresa from './assets/images/milka-removebg-preview.png';
+import video from './assets/images/Copia_CAMPOS_PRODUCTOS.mp4';
 import { Link } from 'react-router-dom';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
   useEffect(() => {
-    fetchCookies()
-  }, [])
+    fetchCookies();
+  }, []);
 
   const fetchCookies = async () => {
     try {
@@ -25,12 +28,20 @@ function App() {
       const req = await fetch("/api/auth/sesion");
 
       if (!req.ok) {
-        throw new Error(await req.text())
+        throw new Error(await req.text());
       }
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
-  }
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div>
@@ -39,9 +50,30 @@ function App() {
           <img src={logo} alt="Mi Factura Perú" className="logo" />
         </div>
       </div>
-      <div className='main'>
-        <img src={empresaLogo} alt="LOGO EMPRESA" className="logo-empresa" />
+      <div className="main">
+        <img
+          src={logoempresa}
+          alt="LOGO EMPRESA"
+          className="logo-empresa"
+          onClick={openModal}  // Al hacer clic en la imagen se abre el modal
+        />
       </div>
+
+      {/* Modal con video en fullscreen */}
+      {isModalOpen && (
+        <div
+          className="modal"
+          onDoubleClick={closeModal} // Doble clic para cerrar el modal
+        >
+          <div className="modal-content">
+            <video width="100%" height="100%" controls autoPlay>
+              <source src={video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
+
       <footer className="footer1">
         <Link to="/productos" className="btn-continue1">CONTINUAR</Link>
       </footer>

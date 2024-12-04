@@ -85,15 +85,15 @@ const Checkout = () => {
                     </div>
                     <div className="productos-promo-scroll">
                         <div className="lista-producto-promo-general">
-                            {[...Array(12)].map((_, index) => (
+                            {[...Array(1)].map((_, index) => (
                                 <div className="lista-producto-promo-content" key={index}>
                                     <div className="img-producto">
                                         <img src={lecheImg} alt="img producto" />
                                     </div>
                                     <div className="lista-producto-promo">
                                         <div className="nombre-prunitario4">
-                                            <p className="nombre-producto4">AJI-NO-MEN</p>
-                                            <h3 className="precio-producto4">S/ 10.30</h3>
+                                            <p className="nombre-producto4">Bolsa</p>
+                                            <h3 className="precio-producto4">S/ 0.20</h3>
                                         </div>
                                     </div>
                                     <button type="button">

@@ -12,8 +12,8 @@ case $opcion in
         npm run dev
         ;;
     2)
-        echo "Iniciando Vite en la dirección 192.168.212.81..."
-        npx vite --host 192.168.212.81
+        echo "Iniciando Vite en la dirección 192.168.212.79..."
+        npx vite --host 192.168.212.79
         ;;
     *)
         echo "Opción no válida. Saliendo del script."

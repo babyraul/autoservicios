@@ -12,7 +12,7 @@ const PublicTotalViewer = ({ totales, items, clientData, prev, next }) => {
         </div>
 
         {
-            items.length >= 0 && <Link to={next} className="btn-continue2" state={{ items, totales, clientData }}>CONTINUAR</Link>
+            items.length >= 0 && <Link to={next} className="btn-continue2" state={{ items, totales, clientData }}>IMPRIMIR</Link>
         }
     </>
 }
