@@ -6,8 +6,7 @@ import { decimalAdjust } from "../global";
 const PublicTotalViewer = ({ totales, items, clientData, prev, next }) => {
     return <>
         { !!prev && <Link to={prev} className="btn-back2">ATRAS</Link> }
-
-        <div className="total-container">
+        <div className="total-container2">
             <h2 className="total">TOTAL A PAGAR</h2>
             <h2 className="precio-total">S/ {decimalAdjust('round', totales.totalMonto, -1)}</h2>
         </div>

@@ -161,8 +161,8 @@ main {
 
 .cliente3 {
     width: fit-content;
-    margin-right: 10px;
     font-family: Arial, Helvetica, sans-serif;
+    margin-left: 200px;
 }
 
 .cliente3 h2 {

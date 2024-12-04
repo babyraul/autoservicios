@@ -275,6 +275,10 @@ const IdentifyClient = () => {
             </main>
             <footer className="footer3">
                 <Link ></Link>
+                { !!clientData && <div className="cliente3">
+                    <h2><span className="static-text">Cliente:</span> { clientName }</h2>
+                    <h2><span className="static-text">Nº Documento:</span> { docNumber }</h2>
+                </div> }
                 <Link
                         to="/checkout"
                         className="btn-continue3"

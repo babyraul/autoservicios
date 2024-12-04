@@ -106,7 +106,10 @@ const Checkout = () => {
                 </section>
             </div>
             <footer className="footer">
-                <PublicTotalViewer prev="/cliente" next="/completado" totales={totales} items={items} clientData={clientData} />
+                <Link></Link>
+                <Link></Link>
+                <Link></Link>
+                <PublicTotalViewer prev={null} next="/completado" totales={totales} items={items} clientData={clientData} />
             </footer>
         </div>
     );

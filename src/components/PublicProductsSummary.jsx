@@ -8,7 +8,7 @@ const PublicProductsSummary = ({ items, onUpdateQuantity, onRemoveItem }) => {
             <div className="fijado-titulo2">
                 <p></p>
                 <p>CANTIDAD</p>
-                <p>PRECIO UNITARIO</p>
+                <p>P.UNITARIO</p>
                 <p>TOTAL</p>
                 <p></p>
             </div>
