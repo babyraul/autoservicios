@@ -55,15 +55,14 @@ function App() {
           src={logoempresa}
           alt="LOGO EMPRESA"
           className="logo-empresa"
-          onClick={openModal}  // Al hacer clic en la imagen se abre el modal
+          onClick={openModal}
         />
       </div>
 
-      {/* Modal con video en fullscreen */}
       {isModalOpen && (
         <div
           className="modal"
-          onDoubleClick={closeModal} // Doble clic para cerrar el modal
+          onDoubleClick={closeModal}
         >
           <div className="modal-content">
             <video width="100%" height="100%" controls autoPlay>
