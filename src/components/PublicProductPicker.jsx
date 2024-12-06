@@ -46,7 +46,7 @@ const PublicProductPicker = ({ onChooseProduct }) => {
     };
 
     return <>
-        <input type="text" placeholder="Buscar" className="input" value={searchTerm} onChange={handleSearch} />
+        <input type="text" placeholder="Buscar" className="input" value={searchTerm} onChange={handleSearch} autoFocus/>
 
         <div className="productos">
             { products.map((p, i) => <PublicProduct key={i} product={p} onChooseProduct={() => onChooseProduct(p)} />) }

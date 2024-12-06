@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'; 
 import logo from './assets/images/mifacturaperublanco.png'; 
-import logoempresa from './assets/images/milka-removebg-preview.png';
+import logoempresa from './assets/images/campos_logo.png';
 import video from './assets/images/Copia_CAMPOS_PRODUCTOS.mp4';
 import { Link } from 'react-router-dom';
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetchCookies();
@@ -16,8 +16,8 @@ function App() {
     try {
       await fetch("api/auth/login", {
         body: JSON.stringify({
-          password: "159456",
-          username: "qalima"
+          password: "soporte520.",
+          username: "autoservicio"
         }),
         headers: {
           "Content-Type": "application/json"
@@ -65,7 +65,7 @@ function App() {
           onDoubleClick={closeModal}
         >
           <div className="modal-content">
-            <video width="100%" height="100%" controls autoPlay>
+            <video width="100%" height="100%" autoPlay loop muted>
               <source src={video} type="video/mp4" />
               Your browser does not support the video tag.
             </video>

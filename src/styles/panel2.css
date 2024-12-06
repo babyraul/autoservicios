@@ -267,3 +267,97 @@ main {
 
 }
 
+/* Media Query para pantallas de 950x430 */
+@media screen and (max-width: 950px) and (max-height: 430px) {
+    /* MAIN */
+    main {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    /* Teclado numerico */
+    .teclado-numerico-container {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        margin: 10px auto;
+        align-items: center;
+    }
+
+    .teclado-numerico {
+        width: 90%; /* Ajusta el ancho relativo a la pantalla */
+        padding: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px; /* Espacio reducido entre botones */
+    }
+
+    .teclado-numerico button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .acciones button {
+        width: 80px;
+        height: 50px;
+        font-size: 16px;
+        margin: 5px;
+    }
+
+    /* ENCABEZADO */
+    .navbar {
+        flex-direction: column; /* Apila los elementos del navbar */
+        padding: 5px;
+    }
+
+    .navbar-left {
+        flex-basis: 100%; /* Expande el ancho del contenedor izquierdo */
+        height: 50px;
+    }
+
+    .logo {
+        width: 120px;
+        height: 50px;
+        margin: 0;
+    }
+
+    /* CLIENTE */
+    .cliente3 {
+        margin-left: 10px; /* Reduce margen lateral */
+        font-size: 14px;
+    }
+
+    .cliente3 h2 {
+        font-size: 14px;
+    }
+
+    .cliente3 .static-text {
+        font-size: 14px;
+    }
+
+    /* PIE DE PÁGINA */
+    .footer3 {
+        flex-direction: column; /* Apila botones verticalmente */
+        height: auto;
+        padding: 10px;
+    }
+
+    .btn-back3, .btn-continue3 {
+        width: 90%; /* Botones ocupan todo el ancho */
+        margin: 5px auto;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    /* INPUT */
+    .id-number {
+        width: 80%;
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    /* FORMULARIOS */
+    .identification-form {
+        font-size: 16px;
+        margin: 10px;
+    }
+}
+

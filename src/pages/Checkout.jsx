@@ -6,7 +6,7 @@ import productoImg from '../assets/images/ajinomen-removebg-preview.png';
 import { decimalAdjust } from "../global";
 import menosIcon from '../assets/images/menos.png';
 import masIcon from '../assets/images/mas2.png';
-import lecheImg from '../assets/images/leche-removebg-preview.png';
+import bolsa from '../assets/images/bolsa-reciclave.png';
 import PublicTotalViewer from "../components/PublicTotalViewer";
 
 const Checkout = () => {
@@ -18,7 +18,48 @@ const Checkout = () => {
 
     const eliminarItem = (index) => {
         const newItems = [...items];
-        newItems.splice(index, 1);
+        const existingProduct = newItems[index];
+
+        if (existingProduct.Cantidad > 1) {
+            // Reducir la cantidad y recalcular el total del producto
+            existingProduct.Cantidad -= 1;
+            existingProduct.Total = decimalAdjust("round", existingProduct.Cantidad * existingProduct.Precio, -2);
+        } else {
+            // Si la cantidad es 1, eliminar el producto
+            newItems.splice(index, 1);
+        }
+
+        // Recalcular el total general
+        const newTotalMonto = newItems.reduce((acc, item) => acc + item.Total, 0);
+
+        setItems(newItems);
+        setTotales({ ...totales, totalMonto: newTotalMonto });
+    };
+
+    const agregarPromocion = () => {
+        const productoPromocional = {
+            descripcion: "Bolsa",
+            unidadMedida: "unidad",
+            Cantidad: 1,
+            Precio: 0.2,
+            Total: 0.2,
+        };
+
+        const existingIndex = items.findIndex(
+            (item) => item.descripcion === productoPromocional.descripcion
+        );
+
+        let newItems;
+        if (existingIndex !== -1) {
+            // Si ya existe el producto, actualizamos su cantidad y total
+            newItems = [...items];
+            const existingProduct = newItems[existingIndex];
+            existingProduct.Cantidad += 1;
+            existingProduct.Total = decimalAdjust("round", existingProduct.Cantidad * existingProduct.Precio, -2);
+        } else {
+            // Si no existe, lo agregamos como un nuevo producto
+            newItems = [...items, productoPromocional];
+        }
 
         const newTotalMonto = newItems.reduce((acc, item) => acc + item.Total, 0);
 
@@ -88,7 +129,7 @@ const Checkout = () => {
                             {[...Array(1)].map((_, index) => (
                                 <div className="lista-producto-promo-content" key={index}>
                                     <div className="img-producto">
-                                        <img src={lecheImg} alt="img producto" />
+                                        <img src={bolsa} alt="img producto" />
                                     </div>
                                     <div className="lista-producto-promo">
                                         <div className="nombre-prunitario4">
@@ -96,7 +137,7 @@ const Checkout = () => {
                                             <h3 className="precio-producto4">S/ 0.20</h3>
                                         </div>
                                     </div>
-                                    <button type="button">
+                                    <button type="button" onClick={agregarPromocion}>
                                         <img src={masIcon} alt="MAS" />
                                     </button>
                                 </div>

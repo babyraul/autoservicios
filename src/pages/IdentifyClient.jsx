@@ -228,6 +228,7 @@ const IdentifyClient = () => {
                     placeholder="NUMERO DOCUMENTO"
                     required
                     readOnly
+                    autoFocus
                 />
 
                 <Link
