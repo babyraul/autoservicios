@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/panel1.css';
 import { decimalAdjust } from "../global";
 
-const PublicTotalViewer = ({ totales, items, clientData, prev, next }) => {
+const PublicTotalViewer = ({ totales, items, clientData, prev, next, buttonText = "CONTINUAR" }) => {
     return <>
         { !!prev && <Link to={prev} className="btn-back2">ATRAS</Link> }
         <div className="total-container2">
@@ -12,7 +12,7 @@ const PublicTotalViewer = ({ totales, items, clientData, prev, next }) => {
         </div>
 
         {
-            items.length >= 0 && <Link to={next} className="btn-continue2" state={{ items, totales, clientData }}>CONTINUAR</Link>
+            items.length >= 0 && <Link to={next} className="btn-continue2" state={{ items, totales, clientData }}>{buttonText}</Link>
         }
     </>
 }

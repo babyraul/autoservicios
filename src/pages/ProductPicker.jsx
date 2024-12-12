@@ -104,7 +104,7 @@ const ProductPicker = () => {
             </div>
         </div>
         <footer className="footer2">
-            <PublicTotalViewer prev="/" next="/cliente" totales={totales} items={items}/>
+            <PublicTotalViewer prev="/" next="/cliente" totales={totales} items={items} buttonText="CONTINUAR"/>
         </footer>
     </>
 }

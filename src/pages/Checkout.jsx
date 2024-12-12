@@ -150,7 +150,7 @@ const Checkout = () => {
                 <Link></Link>
                 <Link></Link>
                 <Link></Link>
-                <PublicTotalViewer prev={null} next="/completado" totales={totales} items={items} clientData={clientData} />
+                <PublicTotalViewer prev={null} next="/completado" totales={totales} items={items} clientData={clientData} buttonText="CONTINUAR" />
             </footer>
         </div>
     );

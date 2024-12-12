@@ -4,7 +4,6 @@ import logo from '../assets/images/mifacturaperublanco.png';
 import PublicTotalViewer from "../components/PublicTotalViewer";
 import { useLocation } from "react-router";
 
-
 const Completed = () => {
     const location = useLocation();
     const { items, totales, docType, docNumber, clientData } = location.state || {};
@@ -48,7 +47,7 @@ const Completed = () => {
                 IdCliente: clientData?.IdCliente,
                 Total: totales.totalMonto,
             };
-    
+
             const req = await fetch("/api/pre-invoice/add/v2", {
                 method: "POST",
                 body: JSON.stringify(payload),
@@ -93,7 +92,7 @@ const Completed = () => {
         }
         
         <footer className="footer5">
-            <PublicTotalViewer prev={null} next="/" totales={totales} items={items}/>
+            <PublicTotalViewer prev={null} next="/" totales={totales} items={items} buttonText="IMPRIMIR"/>
         </footer>
     </div>
 }
