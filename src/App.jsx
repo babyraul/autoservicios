@@ -6,7 +6,7 @@ import video from './assets/images/Copia_CAMPOS_PRODUCTOS.mp4';
 import { Link } from 'react-router-dom';
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   useEffect(() => {
     fetchCookies();
