@@ -1,37 +1,9 @@
-import React, { useEffect } from 'react';
 import './App.css'; 
 import logo from './assets/images/mifacturaperublanco.png'; 
 import empresaLogo from './assets/images/milka-removebg-preview.png';
 import { Link } from 'react-router-dom';
 
 function App() {
-  useEffect(() => {
-    fetchCookies()
-  }, [])
-
-  const fetchCookies = async () => {
-    try {
-      await fetch("api/auth/login", {
-        body: JSON.stringify({
-          password: "159456",
-          username: "qalima"
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      });
-
-      const req = await fetch("/api/auth/sesion");
-
-      if (!req.ok) {
-        throw new Error(await req.text())
-      }
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
   return (
     <div>
       <div className="navbar1">

@@ -1,11 +1,14 @@
-import React from "react";
 import '../styles/panel1.css';
 import { decimalAdjust } from "../global";
 
 const PublicProduct = ({ product, onChooseProduct }) => {
     return <div className="producto" onClick={onChooseProduct}>
         <div className="producto-info">
+<<<<<<< Updated upstream
             <img src={`../images/sporade.png`} alt="" className="producto-imagen" />
+=======
+            <img src={product.UrlImagen} alt="No logo" className="producto-imagen" />
+>>>>>>> Stashed changes
         </div>
         <div className="producto-precio-container">
             <p className="producto-precio">{product.moneda} {decimalAdjust("floor", product.precio, -2)}</p>

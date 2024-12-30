@@ -30,6 +30,7 @@ const Checkout = () => {
                         <p>TOTAL</p>
                         <p></p>
                     </div>
+<<<<<<< Updated upstream
                 </div>
                 <div className='productos-scroll'>
                     { items.map((item, index) => (
@@ -48,6 +49,26 @@ const Checkout = () => {
                                     </div>
                                     <div className="total-precio4">
                                         <h3>S/ {decimalAdjust("round", item.Total, -2)}</h3>
+=======
+                    <div className='productos-scroll'>
+                        {items.map((item, index) => (
+                            <div className="lista-producto" key={index}>
+                                <div className="img-producto">
+                                    <img src={item.UrlImagen} alt="img producto" />
+                                </div>
+                                <div className='lista-producto-container'>
+                                    <div className='producto-nombre4'>{`${item.descripcion} ${item.unidadMedida}`}</div>
+                                    <div className='producto-detalle4'>
+                                        <div className="cantidad4">
+                                            <h3>{item.Cantidad}</h3>
+                                        </div>
+                                        <div className="precio-unitario4">
+                                            <h3>S/ {decimalAdjust("round", item.Precio, -2)}</h3>
+                                        </div>
+                                        <div className="total-precio4">
+                                            <h3>S/ {decimalAdjust("round", item.Total, -2)}</h3>
+                                        </div>
+>>>>>>> Stashed changes
                                     </div>
                                 </div>
                             </div>
