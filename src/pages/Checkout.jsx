@@ -1,8 +1,6 @@
-import React from "react";
 import '../styles/panel3.css';
 import logo from '../assets/images/mifacturaperublanco.png';
-import { Link, useLocation } from 'react-router-dom';
-import productoImg from '../assets/images/ajinomen-removebg-preview.png';
+import { useLocation } from 'react-router-dom';
 import { decimalAdjust } from "../global";
 import menosIcon from '../assets/images/menos.png';
 import masIcon from '../assets/images/mas2.png';
@@ -11,7 +9,7 @@ import PublicTotalViewer from "../components/PublicTotalViewer";
 
 const Checkout = () => {
     const location = useLocation();
-    const { items, totales, docType, docNumber, clientData } = location.state || {};
+    const { items, totales, clientData } = location.state || {};
 
     return <div>
         <header className="navbar">
@@ -30,53 +28,34 @@ const Checkout = () => {
                         <p>TOTAL</p>
                         <p></p>
                     </div>
-<<<<<<< Updated upstream
-                </div>
-                <div className='productos-scroll'>
-                    { items.map((item, index) => (
-                        <div className="lista-producto" key={index}>
-                            <div className="img-producto">
-                                <img src={productoImg} alt="img producto" />
-                            </div>
-                            <div className='lista-producto-container'>
-                                <div className='producto-nombre4'>{`${item.descripcion} ${item.unidadMedida}`}</div>
-                                <div  className='producto-detalle4'>
-                                    <div className="cantidad4">
-                                        <h3>{ item.Cantidad }</h3>
-                                    </div>
-                                    <div className="precio-unitario4">
-                                        <h3>S/ {decimalAdjust("round", item.Precio, -2)}</h3>
-                                    </div>
-                                    <div className="total-precio4">
-                                        <h3>S/ {decimalAdjust("round", item.Total, -2)}</h3>
-=======
                     <div className='productos-scroll'>
                         {items.map((item, index) => (
-                            <div className="lista-producto" key={index}>
-                                <div className="img-producto">
-                                    <img src={item.UrlImagen} alt="img producto" />
-                                </div>
-                                <div className='lista-producto-container'>
-                                    <div className='producto-nombre4'>{`${item.descripcion} ${item.unidadMedida}`}</div>
-                                    <div className='producto-detalle4'>
-                                        <div className="cantidad4">
-                                            <h3>{item.Cantidad}</h3>
+                            <div key={index}>
+                                <div className="lista-producto">
+                                    <div className="img-producto">
+                                        <img src={item.UrlImagen} alt="img producto" />
+                                    </div>
+                                    <div className='lista-producto-container'>
+                                        <div className='producto-nombre4'>{`${item.descripcion} ${item.unidadMedida}`}</div>
+                                        <div className='producto-detalle4'>
+                                            <div className="cantidad4">
+                                                <h3>{item.Cantidad}</h3>
+                                            </div>
+                                            <div className="precio-unitario4">
+                                                <h3>S/ {decimalAdjust("round", item.Precio, -2)}</h3>
+                                            </div>
+                                            <div className="total-precio4">
+                                                <h3>S/ {decimalAdjust("round", item.Total, -2)}</h3>
+                                            </div>
                                         </div>
-                                        <div className="precio-unitario4">
-                                            <h3>S/ {decimalAdjust("round", item.Precio, -2)}</h3>
-                                        </div>
-                                        <div className="total-precio4">
-                                            <h3>S/ {decimalAdjust("round", item.Total, -2)}</h3>
-                                        </div>
->>>>>>> Stashed changes
                                     </div>
                                 </div>
+                                <button type="button">
+                                    <img src={menosIcon} alt="MENOS" />
+                                </button>
                             </div>
-                            <button type="button">
-                                <img src={menosIcon} alt="MENOS" />
-                            </button>
-                        </div>
-                    )) }
+                        )) }
+                    </div>
                 </div>
             </section>
             <section className="section-right">

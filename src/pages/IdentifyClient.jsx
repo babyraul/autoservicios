@@ -283,22 +283,13 @@ const IdentifyClient = () => {
                 </div>
             </main>
             <footer className="footer3">
-<<<<<<< Updated upstream
                 <Link to="/productos" className="btn-back3" state={{ items, totales, clientData }} style={{ marginRight: '10px' }}>ATRAS</Link>
-                { !!clientData && <div className="cliente3">
-                    <h2><span className="static-text">Cliente:</span> { clientName }</h2>
-                    <h2><span className="static-text">Nº Documento:</span> { docNumber }</h2>
-                </div> }
-                <Link
-=======
-                <Link ></Link>
                 { (docNumber.length == 8 || docNumber.length == 11) && !!clientData &&<>
                     <div className="cliente3">
                         <h2><span className="static-text">Cliente:</span> { clientName }</h2>
                         <h2><span className="static-text">Nº Documento:</span> { docNumber }</h2>
                     </div>
                     <Link
->>>>>>> Stashed changes
                         to="/checkout"
                         className="btn-continue3"
                         state={{ items, totales, docType, docNumber, clientData, }}
