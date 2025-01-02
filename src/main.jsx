@@ -18,7 +18,7 @@ Array.prototype.indexOfObject = function (searchElement, key) {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/autoservicios">
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/productos" element={<ProductPicker />} />
