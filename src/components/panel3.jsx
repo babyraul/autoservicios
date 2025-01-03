@@ -2,10 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/panel3.css';
 import logo from '../assets/images/mifacturaperublanco.png'; 
-import productoImg from '../assets/images/ajinomen-removebg-preview.png';
-import menosIcon from '../assets/images/menos.png';
-import masIcon from '../assets/images/mas2.png';
-import lecheImg from '../assets/images/leche-removebg-preview.png';
+import ProductosScroll from './ProductosScroll';
+import ProductosPromoScroll from './ProductosPromoScroll';
 
 const Panel3 = () => {
     return (
@@ -27,34 +25,7 @@ const Panel3 = () => {
                             <p></p>
                         </div>
                     </div>
-                    <div className='productos-scroll'>
-                        {[...Array(10)].map((_, index) => (
-                            // nuevo componente
-                            <div className="lista-producto" key={index}>
-                                <div className="img-producto">
-                                    <img src={productoImg} alt="img producto" />
-                                </div>
-                                <div className='lista-producto-container'>
-                                    <div className='producto-nombre4'>AJI-NO-MEN</div>
-                                    <div  className='producto-detalle4'>
-                                        <div className="cantidad4">
-                                            <h3>1</h3>
-                                        </div>
-                                        <div className="precio-unitario4">
-                                            <h3>S/ 10.30</h3>
-                                        </div>
-                                        <div className="total-precio4">
-                                            <h3>S/ 10.30</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="button">
-                                    <img src={menosIcon} alt="MENOS" />
-                                </button>
-                            </div>
-                            // nuevo componente
-                        ))}
-                    </div>
+                    <ProductosScroll /> 
                 </section>
                 <section className="section-right">
                     <div className="fijado2">
@@ -67,26 +38,7 @@ const Panel3 = () => {
                             <p></p>
                         </div>
                     </div>
-                    <div className="productos-promo-scroll">
-                        <div className="lista-producto-promo-general">
-                            {[...Array(12)].map((_, index) => (
-                                <div className="lista-producto-promo-content" key={index}>
-                                    <div className="img-producto">
-                                        <img src={lecheImg} alt="img producto" />
-                                    </div>
-                                    <div className="lista-producto-promo">
-                                        <div className="nombre-prunitario4">
-                                            <p className="nombre-producto4">AJI-NO-MEN</p>
-                                            <h3 className="precio-producto4">S/ 10.30</h3>
-                                        </div>
-                                    </div>
-                                    <button type="button">
-                                        <img src={masIcon} alt="MAS" />
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    <ProductosPromoScroll /> 
                 </section>
             </div>
             <footer className="footer">

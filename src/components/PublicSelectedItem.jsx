@@ -1,20 +1,20 @@
 import { decimalAdjust } from "../global";
 
 
-const PublicSelectedItem = ({ item, onUpdateQuantity }) => {
+const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
     const updateQuantity = (quantity) => {
         if (typeof onUpdateQuantity != "function") {
             return;
         }
 
-        onUpdateQuantity(quantity)
-    }
+        onUpdateQuantity(quantity);
+    };
 
     return (
         <div className="Producto-item2">
             <button type="button">
                 <img
-                    src={item.UrlImagen}
+                    src="../images/menos.png"
                     alt="MENOS"
                     onClick={() => {
                         if (item.Cantidad <= 1) {

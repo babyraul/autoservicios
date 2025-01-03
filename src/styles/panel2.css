@@ -84,22 +84,23 @@ main {
 /* TECLADO */
 .teclado-numerico-container {
     display: flex;
-    justify-content: space-between; /* Coloca los elementos al principio y al final */
+    justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
     margin: 20px auto;
+    margin-right: 236px;
 }
 
 .teclado-numerico {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px; /* Ajusta el espacio entre botones */
+    gap: 15px;
     width: 250px;
     background-color: #01a59c;
     border: 4px solid #35605a;
     padding: 15px;
     border-radius: 20px;
-    justify-items: center; /* Centra los botones horizontalmente en cada celda */
+    justify-items: center;
     align-items: center; 
 }
 
@@ -149,7 +150,6 @@ main {
 }
 
 .img-scan {
-    width: 80%; 
     max-width: 100%; 
     display: block; 
     margin-left: auto;
@@ -161,19 +161,19 @@ main {
 
 .cliente3 {
     width: fit-content;
-    margin-right: 10px;
     font-family: Arial, Helvetica, sans-serif;
+    margin-left: 200px;
 }
 
 .cliente3 h2 {
     font-weight: bold;
-    color: #333333; /* Color oscuro para el nombre y número */
+    color: #333333;
     font-size: 21px;
     margin: 0;
 }
 
 .cliente3 .static-text {
-    color: #01a59c; /* Color verde azulado para "Cliente:" y "Nº Documento:" */
+    color: #01a59c;
     font-weight: bold;
 }
 
@@ -255,15 +255,109 @@ main {
     
     .cliente3 h2 {
         font-weight: bold;
-        color: #333333; /* Color oscuro para el nombre y número */
+        color: #333333;
         font-size: 16px;
         margin: 0;
     }
     
     .cliente3 .static-text {
-        color: #01a59c; /* Color verde azulado para "Cliente:" y "Nº Documento:" */
+        color: #01a59c;
         font-weight: bold;
     }
 
+}
+
+/* Media Query para pantallas de 950x430 */
+@media screen and (max-width: 950px) and (max-height: 430px) {
+    /* MAIN */
+    main {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    /* Teclado numerico */
+    .teclado-numerico-container {
+        flex-direction: column;
+        margin: 10px auto;
+        align-items: center;
+    }
+
+    .teclado-numerico {
+        width: 90;
+        padding: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .teclado-numerico button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .acciones button {
+        width: 80px;
+        height: 50px;
+        font-size: 16px;
+        margin: 5px;
+    }
+
+    /* ENCABEZADO */
+    .navbar {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .navbar-left {
+        flex-basis: 100%;
+        height: 50px;
+    }
+
+    .logo {
+        width: 120px;
+        height: 50px;
+        margin: 0;
+    }
+
+    /* CLIENTE */
+    .cliente3 {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    .cliente3 h2 {
+        font-size: 14px;
+    }
+
+    .cliente3 .static-text {
+        font-size: 14px;
+    }
+
+    /* PIE DE PÁGINA */
+    .footer3 {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .btn-back3, .btn-continue3 {
+        width: 90%;
+        margin: 5px auto;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    /* INPUT */
+    .id-number {
+        width: 80%;
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    /* FORMULARIOS */
+    .identification-form {
+        font-size: 16px;
+        margin: 10px;
+    }
 }
 

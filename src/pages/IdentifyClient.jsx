@@ -209,7 +209,7 @@ const IdentifyClient = () => {
                 </div>
             </header>
             <main>
-                <div>
+                <div className="identification-form">
                     <label>
                         <input
                             type="radio"
@@ -228,24 +228,6 @@ const IdentifyClient = () => {
                         />
                         RUC
                     </label>
-                    <label>
-                        <input
-                            type="radio"
-                            value="4"
-                            checked={docType == "4"}
-                            onChange={onChangeDocType}
-                        />
-                        CARNET EXTRANJERIA
-                    </label>
-                    <label>
-                        <input 
-                            type="radio" 
-                            value="7"
-                            checked={docType == "7"}
-                            onChange={onChangeDocType}
-                        /> 
-                        PASAPORTE
-                    </label>
                 </div>
 
                 <input
@@ -255,6 +237,7 @@ const IdentifyClient = () => {
                     placeholder="NUMERO DOCUMENTO"
                     required
                     readOnly
+                    autoFocus
                 />
 
                 <Link
@@ -262,7 +245,7 @@ const IdentifyClient = () => {
                     className="omitir"
                     state={{ items, totales, docType, docNumber }}
                 >
-                    OMITA ESTE PASO
+                    OMITIR ESTE PASO
                 </Link>
             
                 
