@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { debounce } from "lodash";
 import { TIPO_STOCK } from "../global";
 

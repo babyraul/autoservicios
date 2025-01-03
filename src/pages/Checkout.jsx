@@ -1,8 +1,10 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
+=======
+>>>>>>> a14ed231377135a7fae674c4b287bb503d0267e1
 import '../styles/panel3.css';
 import logo from '../assets/images/mifacturaperublanco.png';
-import { Link, useLocation } from 'react-router-dom';
-import productoImg from '../assets/images/ajinomen-removebg-preview.png';
+import { useLocation } from 'react-router-dom';
 import { decimalAdjust } from "../global";
 import menosIcon from '../assets/images/menos.png';
 import masIcon from '../assets/images/mas2.png';
@@ -11,6 +13,7 @@ import PublicTotalViewer from "../components/PublicTotalViewer";
 
 const Checkout = () => {
     const location = useLocation();
+<<<<<<< HEAD
     const { items: initialItems, totales: initialTotales, docType, docNumber, clientData } = location.state || {};
 
     const [items, setItems] = useState(initialItems || []);
@@ -85,6 +88,66 @@ const Checkout = () => {
                             <p>TOTAL</p>
                             <p></p>
                         </div>
+=======
+    const { items, totales, clientData } = location.state || {};
+
+    return <div>
+        <header className="navbar">
+            <div className="navbar-left">
+                <img src={logo} alt="Mi Factura Perú" className="logo" />
+            </div>
+        </header>
+        <div className='main4'>
+            <section className="section-left">
+                <div className='fijado'>
+                    <h2 className="title">SELECCIONADOS</h2>
+                    <div className="titulo-productos">
+                        <p></p>
+                        <p>CANTIDAD</p>
+                        <p>PRECIO UNITARIO</p>
+                        <p>TOTAL</p>
+                        <p></p>
+                    </div>
+                    <div className='productos-scroll'>
+                        {items.map((item, index) => (
+                            <div key={index}>
+                                <div className="lista-producto">
+                                    <div className="img-producto">
+                                        <img src={item.UrlImagen} alt="img producto" />
+                                    </div>
+                                    <div className='lista-producto-container'>
+                                        <div className='producto-nombre4'>{`${item.descripcion} ${item.unidadMedida}`}</div>
+                                        <div className='producto-detalle4'>
+                                            <div className="cantidad4">
+                                                <h3>{item.Cantidad}</h3>
+                                            </div>
+                                            <div className="precio-unitario4">
+                                                <h3>S/ {decimalAdjust("round", item.Precio, -2)}</h3>
+                                            </div>
+                                            <div className="total-precio4">
+                                                <h3>S/ {decimalAdjust("round", item.Total, -2)}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button">
+                                    <img src={menosIcon} alt="MENOS" />
+                                </button>
+                            </div>
+                        )) }
+                    </div>
+                </div>
+            </section>
+            <section className="section-right">
+                <div className="fijado2">
+                    <h2 className="title">EN PROMOCION</h2>
+                    <div className="titulo-productos">
+                        <p></p>
+                        <p></p>
+                        <p>PRODUCTO PRECIO</p>
+                        <p></p>
+                        <p></p>
+>>>>>>> a14ed231377135a7fae674c4b287bb503d0267e1
                     </div>
                     <div className='productos-scroll'>
                         {items.map((item, index) => (

@@ -1,44 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import './App.css'; 
-import logo from './assets/images/mifacturaperublanco.png'; 
-import logoempresa from './assets/images/campos_logo.png';
+import { useState, useEffect } from 'react';
+import './App.css';
 import video from './assets/images/Copia_CAMPOS_PRODUCTOS.mp4';
+import logo from './assets/images/mifacturaperublanco.png';
 import { Link } from 'react-router-dom';
+import { isString } from 'lodash';
+
+const LastLogoRefreshToken = "last_logo_refresh"
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const [sessionInfo, setSessionInfo] = useState({
+    Ruc: '',
+    imagenesUrl: '',
+  });
+  const [logoUrl, setLogoUrl] = useState("");
 
   useEffect(() => {
-    fetchCookies();
+    fetchSessionInfo();
   }, []);
 
-  const fetchCookies = async () => {
-    try {
-      await fetch("api/auth/login", {
-        body: JSON.stringify({
-          password: "soporte520.",
-          username: "autoservicio"
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      });
-
-      const req = await fetch("/api/auth/sesion");
-
-      if (!req.ok) {
-        throw new Error(await req.text());
-      }
-    } catch (e) {
-      console.error(e);
+  useEffect(() => {
+    if (!isString(sessionInfo.Ruc) || !isString(sessionInfo.imagenesUrl)) {
+      setLogoUrl("");
+      return;
     }
-  };
+    if (sessionInfo.Ruc == "" || sessionInfo.imagenesUrl == "") {
+      setLogoUrl("");
+      return;
+    }
+    if (refreshLogo()) {
+      fetch(`${sessionInfo.imagenesUrl}/api/empresa/${sessionInfo.Ruc}`);
+      localStorage.setItem(LastLogoRefreshToken, new Date().toISOString())
+    }
+    setLogoUrl(`${sessionInfo.imagenesUrl}/media/${sessionInfo.Ruc}/logo.png`)
+  }, [sessionInfo])
 
+  const fetchSessionInfo = async () => {
+    const req = await fetch('/api/auth/sesion');
+    if (!req.ok) {
+      return;
+    }
+    const data = await req.json();
+    setSessionInfo(data);
+  }
+
+  const refreshLogo = () => {
+    const lastRefresh = localStorage.getItem(LastLogoRefreshToken);
+    if (lastRefresh == null) {
+      return true;
+    }
+    const sincesMs = new Date() - new Date(lastRefresh)
+    return Math.floor(sincesMs / (1000 * 60)) > 5;
+  }
+  
   const openModal = () => {
     setIsModalOpen(true);
   };
-
+  
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -52,13 +70,12 @@ function App() {
       </div>
       <div className="main">
         <img
-          src={logoempresa}
+          src={logoUrl}
           alt="LOGO EMPRESA"
           className="logo-empresa"
           onClick={openModal}
         />
       </div>
-
       {isModalOpen && (
         <div
           className="modal"
@@ -72,12 +89,10 @@ function App() {
           </div>
         </div>
       )}
-
       <footer className="footer1">
         <Link to="/productos" className="btn-continue1">CONTINUAR</Link>
       </footer>
     </div>
   );
 }
-
 export default App;

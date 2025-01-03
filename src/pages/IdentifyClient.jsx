@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import '../styles/panel2.css';
 import logo from '../assets/images/mifacturaperublanco.png';
 import imgScan from '../assets/images/img_scan_dni.png';
@@ -15,7 +15,7 @@ const IdentifyClient = () => {
 
     useEffect(() => {
         const fetchDefaultClient = async () => {
-            client = await fetchClient();
+            const client = await fetchClient();
             setClientData(client);
         }
 
@@ -39,6 +39,10 @@ const IdentifyClient = () => {
             return;
         }
 
+        if (docNumber.length == 8 && (docNumber.startsWith('20') || docNumber.startsWith('10'))) {
+            return;
+        }
+
         const search = async () => {
             let client = null;
 
@@ -48,7 +52,7 @@ const IdentifyClient = () => {
                 client = await fetchClient();
             }
 
-            if (!client) {
+            if (client == null) {
                 const newClient = await fetchFromSource();
 
                 let apPaterno = "", apMaterno = "", primerNombre = "", segundoNombre = "";
@@ -71,8 +75,8 @@ const IdentifyClient = () => {
                     "IdTipoPersona": docNumber.length === 11 && docNumber.startsWith("20") ? "2" : "1",
                     "IdTipoDocumento": docType,
                     "NroTipoDocumento": docNumber,
-                    "RazonSocial": newClient.name,
-                    "NombreComercial": newClient.name,
+                    "RazonSocial": docNumber.length === 11 ? newClient.name : "",
+                    "NombreComercial": docNumber.length === 11 ? newClient.name : "",
                     "ApellidoPaterno": apPaterno,
                     "ApellidoMaterno": apMaterno,
                     "PrimerNombre": primerNombre,
@@ -92,8 +96,8 @@ const IdentifyClient = () => {
                     "IdTipoMoneda": null,
                     "LineaCredito": null,
                     "FormaPago": null,
-                    "EstadoSunat": newClient.status === 'ACTIVO' ? 'Activo' : '',
-                    "Situacion": newClient.condition === 'HABIDO' ? 'Habido' : '',
+                    "EstadoSunat": newClient.status === 'ACTIVO' ? 'Activo' : null,
+                    "Situacion": newClient.condition === 'HABIDO' ? 'Habido' : null,
                     "IdEmpresa": 1,
                     "Estado": "Activo",
                     "Zona": "",
@@ -117,7 +121,10 @@ const IdentifyClient = () => {
         try {
             const req = await fetch("/api/clientes", {
                 method: "POST",
-                body: JSON.stringify(client)
+                body: JSON.stringify(client),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             });
 
             if (!req.ok) {
@@ -186,10 +193,12 @@ const IdentifyClient = () => {
 
     const addNumber = (number) => {
         setDocNumber(docNumber + number)
+        setClientData(null)
     };
     
     const removeAll = () => {
         setDocNumber("")
+        setClientData(null)
     };
 
     return <>
@@ -257,18 +266,29 @@ const IdentifyClient = () => {
                 </div>
             </main>
             <footer className="footer3">
+<<<<<<< HEAD
                 <Link ></Link>
                 { !!clientData && <div className="cliente3">
                     <h2><span className="static-text">Cliente:</span> { clientName }</h2>
                     <h2><span className="static-text">Nº Documento:</span> { docNumber }</h2>
                 </div> }
                 <Link
+=======
+                <Link to="/productos" className="btn-back3" state={{ items, totales, clientData }} style={{ marginRight: '10px' }}>ATRAS</Link>
+                { (docNumber.length == 8 || docNumber.length == 11) && !!clientData &&<>
+                    <div className="cliente3">
+                        <h2><span className="static-text">Cliente:</span> { clientName }</h2>
+                        <h2><span className="static-text">Nº Documento:</span> { docNumber }</h2>
+                    </div>
+                    <Link
+>>>>>>> a14ed231377135a7fae674c4b287bb503d0267e1
                         to="/checkout"
                         className="btn-continue3"
                         state={{ items, totales, docType, docNumber, clientData, }}
                     >
                         CONTINUAR
                     </Link> 
+                </> }
             </footer>
         </div>
     </>

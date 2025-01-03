@@ -1,14 +1,23 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import '../styles/panel4.css';
 import logo from '../assets/images/mifacturaperublanco.png';
 import PublicTotalViewer from "../components/PublicTotalViewer";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const Completed = () => {
+    const navigate = useNavigate();
     const location = useLocation();
-    const { items, totales, docType, docNumber, clientData } = location.state || {};
+    const { items, totales, docNumber, clientData } = location.state || {};
     const [clientName, setClientName] = useState("");
     const [ticket, setTicket] = useState();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            navigate('/');
+        }, 15_000);
+
+        return () => clearTimeout(timer);
+    }, [navigate])
 
     useEffect(() => {
         if (!clientData) {
@@ -90,7 +99,6 @@ const Completed = () => {
                 <h2 className="nombre-right">{ docNumber }</h2>
             </section>
         }
-        
         <footer className="footer5">
             <PublicTotalViewer prev={null} next="/" totales={totales} items={items} buttonText="IMPRIMIR"/>
         </footer>
