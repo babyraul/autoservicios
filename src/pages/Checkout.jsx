@@ -128,7 +128,7 @@ const Checkout = () => {
                         {items.map((item, index) => (
                             <div className="lista-producto" key={index}>
                                 <div className="img-producto">
-                                    <img src={productoImg} alt="img producto" />
+                                    <img src={item.UrlImagen} alt="img producto" />
                                 </div>
                                 <div className='lista-producto-container'>
                                     <div className='producto-nombre4'>{`${item.descripcion} ${item.unidadMedida}`}</div>
