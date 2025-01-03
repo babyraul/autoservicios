@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css'
 import App from './App.jsx';
-
 import ProductPicker from './pages/ProductPicker';
 import IdentifyClient from './pages/IdentifyClient.jsx';
 import Checkout from './pages/Checkout.jsx';

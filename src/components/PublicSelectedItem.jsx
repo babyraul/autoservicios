@@ -14,20 +14,12 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
         <div className="Producto-item2">
             <button type="button">
                 <img
-<<<<<<< HEAD
                     src="../images/menos.png"
-=======
-                    src={item.UrlImagen}
->>>>>>> a14ed231377135a7fae674c4b287bb503d0267e1
                     alt="MENOS"
                     onClick={() => {
                         if (item.Cantidad <= 1) {
                             if (typeof onRemoveItem === "function") {
-<<<<<<< HEAD
-                                onRemoveItem(item); // Llama a la función para eliminar el producto
-=======
                                 onRemoveItem(item);
->>>>>>> a14ed231377135a7fae674c4b287bb503d0267e1
                             }
                             return;
                         }
@@ -49,26 +41,11 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            <button type="button">
-                <img
-                    src="../images/mas2.png"
-                    alt="MAS"
-                    onClick={() => {
-                        updateQuantity(item.Cantidad + 1);
-                    }}
-                />
-            </button>
-        </div>
-    );
-};
-=======
             <button type="button"><img src="../images/mas2.png" alt="MAS" onClick={() => {
                 updateQuantity(item.Cantidad + 1)
             }}/></button>
         </div>
     )
 }
->>>>>>> a14ed231377135a7fae674c4b287bb503d0267e1
 
 export default PublicSelectedItem;

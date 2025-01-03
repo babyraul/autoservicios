@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-=======
->>>>>>> a14ed231377135a7fae674c4b287bb503d0267e1
 import '../styles/panel3.css';
 import logo from '../assets/images/mifacturaperublanco.png';
 import { useLocation } from 'react-router-dom';
@@ -13,11 +9,12 @@ import PublicTotalViewer from "../components/PublicTotalViewer";
 
 const Checkout = () => {
     const location = useLocation();
-<<<<<<< HEAD
+
     const { items: initialItems, totales: initialTotales, docType, docNumber, clientData } = location.state || {};
 
     const [items, setItems] = useState(initialItems || []);
     const [totales, setTotales] = useState(initialTotales || { totalMonto: 0 });
+
 
     const eliminarItem = (index) => {
         const newItems = [...items];
@@ -69,28 +66,6 @@ const Checkout = () => {
         setItems(newItems);
         setTotales({ ...totales, totalMonto: newTotalMonto });
     };
-
-    return (
-        <div>
-            <header className="navbar">
-                <div className="navbar-left">
-                    <img src={logo} alt="Mi Factura Perú" className="logo" />
-                </div>
-            </header>
-            <div className='main4'>
-                <section className="section-left">
-                    <div className='fijado'>
-                        <h2 className="title">SELECCIONADOS</h2>
-                        <div className="titulo-productos">
-                            <p></p>
-                            <p>CANTIDAD</p>
-                            <p>PRECIO UNITARIO</p>
-                            <p>TOTAL</p>
-                            <p></p>
-                        </div>
-=======
-    const { items, totales, clientData } = location.state || {};
-
     return <div>
         <header className="navbar">
             <div className="navbar-left">
@@ -147,7 +122,6 @@ const Checkout = () => {
                         <p>PRODUCTO PRECIO</p>
                         <p></p>
                         <p></p>
->>>>>>> a14ed231377135a7fae674c4b287bb503d0267e1
                     </div>
                     <div className='productos-scroll'>
                         {items.map((item, index) => (
@@ -175,40 +149,40 @@ const Checkout = () => {
                             </div>
                         ))}
                     </div>
-                </section>
-                <section className="section-right">
-                    <div className="fijado2">
-                        <h2 className="title">EN PROMOCION</h2>
-                        <div className="titulo-productos">
-                            <p></p>
-                            <p></p>
-                            <p>PRODUCTO PRECIO</p>
-                            <p></p>
-                            <p></p>
-                        </div>
+                </div>
+            </section>
+            <section className="section-right">
+                <div className="fijado2">
+                    <h2 className="title">EN PROMOCION</h2>
+                    <div className="titulo-productos">
+                        <p></p>
+                        <p></p>
+                        <p>PRODUCTO PRECIO</p>
+                        <p></p>
+                        <p></p>
                     </div>
-                    <div className="productos-promo-scroll">
-                        <div className="lista-producto-promo-general">
-                            {[...Array(1)].map((_, index) => (
-                                <div className="lista-producto-promo-content" key={index}>
-                                    <div className="img-producto">
-                                        <img src={bolsa} alt="img producto" />
-                                    </div>
-                                    <div className="lista-producto-promo">
-                                        <div className="nombre-prunitario4">
-                                            <p className="nombre-producto4">Bolsa</p>
-                                            <h3 className="precio-producto4">S/ 0.20</h3>
-                                        </div>
-                                    </div>
-                                    <button type="button" onClick={agregarPromocion}>
-                                        <img src={masIcon} alt="MAS" />
-                                    </button>
+                </div>
+                <div className="productos-promo-scroll">
+                    <div className="lista-producto-promo-general">
+                        {[...Array(1)].map((_, index) => (
+                            <div className="lista-producto-promo-content" key={index}>
+                                <div className="img-producto">
+                                    <img src={bolsa} alt="img producto" />
                                 </div>
-                            ))}
-                        </div>
+                                <div className="lista-producto-promo">
+                                    <div className="nombre-prunitario4">
+                                        <p className="nombre-producto4">Bolsa</p>
+                                        <h3 className="precio-producto4">S/ 0.20</h3>
+                                    </div>
+                                </div>
+                                <button type="button" onClick={agregarPromocion}>
+                                    <img src={masIcon} alt="MAS" />
+                                </button>
+                            </div>
+                        ))}
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
             <footer className="footer">
                 <Link></Link>
                 <Link></Link>
@@ -216,7 +190,6 @@ const Checkout = () => {
                 <PublicTotalViewer prev={null} next="/completado" totales={totales} items={items} clientData={clientData} buttonText="CONTINUAR" />
             </footer>
         </div>
-    );
+    </div>;
 };
-
 export default Checkout;
