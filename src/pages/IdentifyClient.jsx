@@ -266,7 +266,7 @@ const IdentifyClient = () => {
                 </div>
             </main>
             <footer className="footer3">
-                <Link to="/productos" className="btn-back3" state={{ items, totales, clientData }} style={{ marginRight: '10px' }}>ATRAS</Link>
+                <Link to="/productos" className="btn-back3" state={{ items, totales, clientData }}>ATRAS</Link>
                 { (docNumber.length == 8 || docNumber.length == 11) && !!clientData &&<>
                     <div className="cliente3">
                         <h2><span className="static-text">Cliente:</span> { clientName }</h2>
