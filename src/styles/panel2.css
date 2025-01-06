@@ -59,7 +59,7 @@ main {
 
 .identification-form label {
     display: inline-block;
-    margin-right: 10px; 
+    margin-right: 20px; 
 }
 
 .identification-form input[type="radio"] {

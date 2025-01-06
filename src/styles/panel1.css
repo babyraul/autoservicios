@@ -341,14 +341,14 @@ button:hover img {
         width: 600px;
         margin-right: 0;
         margin-bottom: 10px; 
-        max-height: 550px;
+        max-height: 650px;
         align-items: center;
     }
 
     .section-right2 {
         width: 600px;
         margin-left: 0;
-        max-height: 550px;
+        max-height: 650px;
         align-items: center;
     }
     /* BUTTON */
