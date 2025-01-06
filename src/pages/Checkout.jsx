@@ -105,10 +105,10 @@ const Checkout = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    <button type="button" onClick={() => eliminarItem(index)}>
+                                        <img src={menosIcon} alt="MENOS" />
+                                    </button>
                                 </div>
-                                <button type="button">
-                                    <img src={menosIcon} alt="MENOS" />
-                                </button>
                             </div>
                         )) }
                     </div>
@@ -144,8 +144,8 @@ const Checkout = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" onClick={() => eliminarItem(index)}>
-                                    <img src={menosIcon} alt="MENOS" />
+                                <button type="button" onClick={() => agregarPromocion(index)}>
+                                    <img src={masIcon} alt="MAS" />
                                 </button>
                             </div>
                         ))}
