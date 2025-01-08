@@ -328,6 +328,7 @@ button:hover img {
     transition: transform 0.2s, opacity 0.2s;
 }
 
+/* --------------------DISEÑO PANTALLA TACTIL------------------------------ */
 @media (max-width: 800px) {
     .content {
         flex-direction: column;
