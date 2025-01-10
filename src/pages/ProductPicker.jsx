@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom';
 const ProductPicker = () => {
     const [items, setItems] = useState([]);
     const [totales, setTotales] = useState({});
+    const [alias, setAlias] = useState("");
 
     const location = useLocation();
 
@@ -96,7 +97,7 @@ const ProductPicker = () => {
         </div>
         <div className="content">
             <div className="section-left2">
-                <PublicProductPicker onChooseProduct={onChooseProduct} onRemoveItem={removeItem} />
+                <PublicProductPicker onChooseProduct={onChooseProduct} onRemoveItem={removeItem} onUpdateAlias={a => setAlias(a)} />
             </div>
 
             <div className="section-right2">
@@ -104,7 +105,7 @@ const ProductPicker = () => {
             </div>
         </div>
         <footer className="footer2">
-            <PublicTotalViewer prev="/" next="/cliente" totales={totales} items={items} buttonText="CONTINUAR"/>
+            <PublicTotalViewer prev="/" next="/cliente" totales={totales} items={items} alias={alias} buttonText="CONTINUAR"/>
         </footer>
     </>
 }

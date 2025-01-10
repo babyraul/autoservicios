@@ -11,11 +11,10 @@ import PublicTotalViewer from "../components/PublicTotalViewer";
 const Checkout = () => {
     const location = useLocation();
 
-    const { items: initialItems, totales: initialTotales, docType, docNumber, clientData } = location.state || {};
+    const { items: initialItems, totales: initialTotales, alias, docType, docNumber, clientData } = location.state || {};
 
     const [items, setItems] = useState(initialItems || []);
     const [totales, setTotales] = useState(initialTotales || { totalMonto: 0 });
-
 
     const eliminarItem = (index) => {
         const newItems = [...items];
@@ -153,7 +152,7 @@ const Checkout = () => {
                 </div>
             </section>
             <footer className="footer">
-                <PublicTotalViewer prev={null} next="/completado" totales={totales} items={items} clientData={clientData} buttonText="CONTINUAR" />
+                <PublicTotalViewer prev={null} next="/completado" totales={totales} items={items} alias={alias} clientData={clientData} buttonText="CONTINUAR" />
             </footer>
         </div>
     </div>;

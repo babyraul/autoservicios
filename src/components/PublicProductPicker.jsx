@@ -8,10 +8,14 @@ import PublicProduct from "./PublicProduct";
 import '../styles/panel1.css';
 
 
-const PublicProductPicker = ({ onChooseProduct }) => {
+const PublicProductPicker = ({ onChooseProduct, onUpdateAlias }) => {
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [alias, setAlias] = useState("");  // Nuevo estado para almacenar el alias
+    const [alias, setAlias] = useState("");
+
+    useEffect(() => {
+        onUpdateAlias(alias)
+    }, [alias])
 
     const fetchProductos = async (q) => {
         const req = await fetch(`/api/preVentas/?search=${q}&idTipoStock=${TIPO_STOCK.CON_COMPROBANTE}`);

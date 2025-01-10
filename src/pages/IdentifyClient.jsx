@@ -7,11 +7,29 @@ import { Link, useLocation } from 'react-router-dom';
 
 const IdentifyClient = () => {
     const location = useLocation();
-    const { items, totales } = location.state || {};
+    const { items, totales, alias } = location.state || {};
     const [docType, setDocType] = useState("1");
     const [docNumber, setDocNumber] = useState("99999999")
     const [clientData, setClientData] = useState(null);
     const [clientName, setClientName] = useState("");
+
+    useEffect(() => {
+        if (typeof docNumber !== 'string') {
+            return;
+        }
+        
+        if (docNumber.length === 8 && /^\d{8}$/.test(docNumber)) {
+            setDocType("1");
+            return;
+        }
+        
+        if (docNumber.length === 11 && /^(10|20)\d{9}$/.test(docNumber)) {
+            setDocType("6");
+            return;
+        }
+        
+        setDocType("1");
+    }, [docNumber])
 
     useEffect(() => {
         const fetchDefaultClient = async () => {
@@ -115,7 +133,7 @@ const IdentifyClient = () => {
         }
 
         search();
-    }, [docNumber])
+    }, [docNumber, docType])
 
     const registerClient = async (client) => {
         try {
@@ -275,7 +293,7 @@ const IdentifyClient = () => {
                     <Link
                         to="/checkout"
                         className="btn-continue3"
-                        state={{ items, totales, docType, docNumber, clientData, }}
+                        state={{ items, totales, alias, docType, docNumber, clientData, }}
                     >
                         CONTINUAR
                     </Link> 
