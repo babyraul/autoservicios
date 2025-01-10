@@ -54,10 +54,6 @@ const PublicProductPicker = ({ onChooseProduct, onUpdateAlias }) => {
         setAlias(e.target.value);  // Actualiza el alias
     };
 
-    const handleProductSelection = (product) => {
-        // Al seleccionar un producto, pasa el alias junto con el producto
-        onChooseProduct(product, alias);
-    };
 
     return <>
         <div className="input-container">
@@ -66,7 +62,7 @@ const PublicProductPicker = ({ onChooseProduct, onUpdateAlias }) => {
         </div>
 
         <div className="productos">
-            { products.map((p, i) => <PublicProduct key={i} product={p} onChooseProduct={() => handleProductSelection(p)} />)}
+            { products.map((p, i) => <PublicProduct key={i} product={p} onChooseProduct={() => onChooseProduct(p)} />)}
         </div>
     </>
 }
