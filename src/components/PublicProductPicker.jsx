@@ -11,6 +11,7 @@ import '../styles/panel1.css';
 const PublicProductPicker = ({ onChooseProduct }) => {
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [alias, setAlias] = useState("");  // Nuevo estado para almacenar el alias
 
     const fetchProductos = async (q) => {
         const req = await fetch(`/api/preVentas/?search=${q}&idTipoStock=${TIPO_STOCK.CON_COMPROBANTE}`);
@@ -45,11 +46,23 @@ const PublicProductPicker = ({ onChooseProduct }) => {
         debounceSearch(value);
     };
 
+    const handleAliasChange = (e) => {
+        setAlias(e.target.value);  // Actualiza el alias
+    };
+
+    const handleProductSelection = (product) => {
+        // Al seleccionar un producto, pasa el alias junto con el producto
+        onChooseProduct(product, alias);
+    };
+
     return <>
-        <input type="text" placeholder="Buscar" className="input" value={searchTerm} onChange={handleSearch} autoFocus/>
+        <div className="input-container">
+            <input type="text" placeholder="Buscar" className="input" value={searchTerm} onChange={handleSearch} autoFocus/>
+            <input type="text" placeholder="Alias" className="input" value={alias} onChange={handleAliasChange}/>
+        </div>
 
         <div className="productos">
-            { products.map((p, i) => <PublicProduct key={i} product={p} onChooseProduct={() => onChooseProduct(p)} />) }
+            { products.map((p, i) => <PublicProduct key={i} product={p} onChooseProduct={() => handleProductSelection(p)} />)}
         </div>
     </>
 }
