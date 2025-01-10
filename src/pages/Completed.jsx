@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from "react-router";
 const Completed = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { items, totales, docNumber, clientData } = location.state || {};
+    const { items, totales, alias, docNumber, clientData } = location.state || {};
     const [clientName, setClientName] = useState("");
     const [ticket, setTicket] = useState();
 
@@ -55,6 +55,7 @@ const Completed = () => {
                 IdTipoDocumentoSunat: 1,
                 IdCliente: clientData?.IdCliente,
                 Total: totales.totalMonto,
+                alias: alias,
             };
 
             const req = await fetch("/api/pre-invoice/add/v2", {

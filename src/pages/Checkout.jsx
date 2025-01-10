@@ -1,6 +1,7 @@
 import '../styles/panel3.css';
 import logo from '../assets/images/mifacturaperublanco.png';
 import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from "react";
 import { decimalAdjust } from "../global";
 import menosIcon from '../assets/images/menos.png';
 import masIcon from '../assets/images/mas2.png';
@@ -10,11 +11,10 @@ import PublicTotalViewer from "../components/PublicTotalViewer";
 const Checkout = () => {
     const location = useLocation();
 
-    const { items: initialItems, totales: initialTotales, docType, docNumber, clientData } = location.state || {};
+    const { items: initialItems, totales: initialTotales, alias, docType, docNumber, clientData } = location.state || {};
 
     const [items, setItems] = useState(initialItems || []);
     const [totales, setTotales] = useState(initialTotales || { totalMonto: 0 });
-
 
     const eliminarItem = (index) => {
         const newItems = [...items];
@@ -104,10 +104,10 @@ const Checkout = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    <button type="button" onClick={() => eliminarItem(index)}>
+                                        <img src={menosIcon} alt="MENOS" />
+                                    </button>
                                 </div>
-                                <button type="button">
-                                    <img src={menosIcon} alt="MENOS" />
-                                </button>
                             </div>
                         )) }
                     </div>
@@ -127,7 +127,7 @@ const Checkout = () => {
                         {items.map((item, index) => (
                             <div className="lista-producto" key={index}>
                                 <div className="img-producto">
-                                    <img src={productoImg} alt="img producto" />
+                                    <img src={bolsa} alt="img producto" />
                                 </div>
                                 <div className='lista-producto-container'>
                                     <div className='producto-nombre4'>{`${item.descripcion} ${item.unidadMedida}`}</div>
@@ -143,39 +143,7 @@ const Checkout = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" onClick={() => eliminarItem(index)}>
-                                    <img src={menosIcon} alt="MENOS" />
-                                </button>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-            <section className="section-right">
-                <div className="fijado2">
-                    <h2 className="title">EN PROMOCION</h2>
-                    <div className="titulo-productos">
-                        <p></p>
-                        <p></p>
-                        <p>PRODUCTO PRECIO</p>
-                        <p></p>
-                        <p></p>
-                    </div>
-                </div>
-                <div className="productos-promo-scroll">
-                    <div className="lista-producto-promo-general">
-                        {[...Array(1)].map((_, index) => (
-                            <div className="lista-producto-promo-content" key={index}>
-                                <div className="img-producto">
-                                    <img src={bolsa} alt="img producto" />
-                                </div>
-                                <div className="lista-producto-promo">
-                                    <div className="nombre-prunitario4">
-                                        <p className="nombre-producto4">Bolsa</p>
-                                        <h3 className="precio-producto4">S/ 0.20</h3>
-                                    </div>
-                                </div>
-                                <button type="button" onClick={agregarPromocion}>
+                                <button type="button" onClick={() => agregarPromocion(index)}>
                                     <img src={masIcon} alt="MAS" />
                                 </button>
                             </div>
@@ -184,10 +152,7 @@ const Checkout = () => {
                 </div>
             </section>
             <footer className="footer">
-                <Link></Link>
-                <Link></Link>
-                <Link></Link>
-                <PublicTotalViewer prev={null} next="/completado" totales={totales} items={items} clientData={clientData} buttonText="CONTINUAR" />
+                <PublicTotalViewer prev={null} next="/completado" totales={totales} items={items} alias={alias} clientData={clientData} buttonText="CONTINUAR" />
             </footer>
         </div>
     </div>;

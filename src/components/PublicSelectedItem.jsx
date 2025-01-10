@@ -1,4 +1,6 @@
 import { decimalAdjust } from "../global";
+import imenos from "../assets/images/menos.png"
+import imas from "../assets/images/mas2.png"
 
 
 const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
@@ -14,7 +16,7 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
         <div className="Producto-item2">
             <button type="button">
                 <img
-                    src="../images/menos.png"
+                    src={imenos}
                     alt="MENOS"
                     onClick={() => {
                         if (item.Cantidad <= 1) {
@@ -41,7 +43,7 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
                     </div>
                 </div>
             </div>
-            <button type="button"><img src="../images/mas2.png" alt="MAS" onClick={() => {
+            <button type="button"><img src={imas} alt="MAS" onClick={() => {
                 updateQuantity(item.Cantidad + 1)
             }}/></button>
         </div>
