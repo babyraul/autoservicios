@@ -8,7 +8,7 @@ import { isString } from 'lodash';
 const LastLogoRefreshToken = "last_logo_refresh"
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [sessionInfo, setSessionInfo] = useState({
     Ruc: '',
     imagenesUrl: '',
@@ -16,7 +16,14 @@ function App() {
   const [logoUrl, setLogoUrl] = useState("");
 
   useEffect(() => {
-    fetchSessionInfo();
+    const task = async () => {
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        await fetchCookies()
+      }
+      await fetchSessionInfo();
+    }
+
+    task()
   }, []);
 
   useEffect(() => {
@@ -34,6 +41,27 @@ function App() {
     }
     setLogoUrl(`${sessionInfo.imagenesUrl}/media/${sessionInfo.Ruc}/logo.png`)
   }, [sessionInfo])
+
+  const fetchCookies = async () => {
+    try {
+      await fetch("/api/auth/login", {
+        body: JSON.stringify({
+          password: "159456",
+          username: "qalima"
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      });
+      const req = await fetch("/api/auth/sesion");
+      if (!req.ok) {
+        throw new Error(await req.text())
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  }
 
   const fetchSessionInfo = async () => {
     const req = await fetch('/api/auth/sesion');
