@@ -1,6 +1,7 @@
 import { jsPDF } from 'jspdf';
 import { Style, Section } from "./clasesImpresion";
 import 'jspdf-autotable';
+import JsBarcode from 'jsbarcode';
 
 const printBlob = sURL => {
     const oHiddFrame = document.createElement("iframe");
@@ -97,6 +98,17 @@ export const printTicket = async (info) => {
     usuarioSection.write(`DOC: ${info.NroTipoDocumento}`);
     usuarioSection.write(`CLIENTE: ${info.RazonSocial}`);
     usuarioSection.write(` `);
+
+    const canvas = document.createElement("canvas");
+    JsBarcode(canvas, `PV-${info.IdPreventa}`, {
+        format: "CODE128",
+        width: 2,
+        height: 50,
+        displayValue: false,
+    });
+
+    const barcodeImage = canvas.toDataURL("image/png");
+    doc.addImage(barcodeImage, "PNG", 4, usuarioSection.endY, 70, 20);
 
     doc.autoPrint();
     printBlob(doc.output("bloburl"));

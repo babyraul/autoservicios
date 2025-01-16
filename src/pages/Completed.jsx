@@ -14,8 +14,8 @@ const Completed = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigate('/');
-        }, 15_000);
+            window.location.href = "/autoservicios/"
+        }, 30_000);
 
         return () => clearTimeout(timer);
     }, [navigate])
