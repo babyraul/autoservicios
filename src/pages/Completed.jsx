@@ -3,6 +3,7 @@ import '../styles/panel4.css';
 import logo from '../assets/images/mifacturaperublanco.png';
 import PublicTotalViewer from "../components/PublicTotalViewer";
 import { useLocation, useNavigate } from "react-router";
+import { printTicket } from "../helpers/ticket";
 
 const Completed = () => {
     const navigate = useNavigate();
@@ -13,8 +14,8 @@ const Completed = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigate('/');
-        }, 15_000);
+            window.location.href = "/autoservicios/"
+        }, 30_000);
 
         return () => clearTimeout(timer);
     }, [navigate])
@@ -77,10 +78,17 @@ const Completed = () => {
             console.log(data)
 
             setTicket(`PV-${data.IdPreventa}`)
+            detallePreventa(data.IdPreventa)
         }
 
         task()
     }, [])
+
+    const detallePreventa = async (preventa) => {
+        const req = await fetch(`/api/gestionpreventas/preventa/${preventa}`)
+        const data = await req.json();
+        printTicket(data.respuesta[0]);
+    }
 
     return <div>
         <header className="navbar">
@@ -103,7 +111,7 @@ const Completed = () => {
             </section>
         }
         <footer className="footer5">
-            <PublicTotalViewer prev={null} next="/" totales={totales} items={items} buttonText="IMPRIMIR"/>
+            <PublicTotalViewer prev={null} next="/" totales={totales} items={items} useLink={false} buttonText="IMPRIMIR" onClick={() => printTicket({}, )}/>
         </footer>
     </div>
 }
