@@ -9,7 +9,7 @@ body {
 }
 
 /* Contenido principal */
-.content {
+.content6 {
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -134,8 +134,8 @@ body {
 }
 
 .input-container .input[type="text"]:last-child {
-    flex: 1; /* El input de alias ocupa menos espacio */
-    font-size: 16px; /* Alias es un poco más grande que el de búsqueda */
+    flex: 1;
+    font-size: 16px;
 }
 
 /* PRODUCTOS */
@@ -345,7 +345,7 @@ button:hover img {
 
 /* --------------------DISEÑO PANTALLA TACTIL------------------------------ */
 @media (max-width: 800px) {
-    .content {
+    .content6 {
         flex-direction: column;
         height: 1130px;
         display: flex;
@@ -391,7 +391,7 @@ button:hover img {
 /* --------------------DISEÑO TABLET SIN FULLSCREEN------------------------------ */
 @media (max-width: 1000px) and (max-height: 430px) {
 
-    .content{
+    .content6{
         height: 300px;
     }
     .section-left2{
