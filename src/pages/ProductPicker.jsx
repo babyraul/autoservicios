@@ -95,7 +95,7 @@ const ProductPicker = () => {
                 <img src={logo} alt="Mi Factura Perú" className="logo" />
             </div>
         </div>
-        <div className="content">
+        <div className="content6">
             <div className="section-left2">
                 <PublicProductPicker onChooseProduct={onChooseProduct} onRemoveItem={removeItem} onUpdateAlias={a => setAlias(a)} />
             </div>

@@ -85,29 +85,27 @@ const Checkout = () => {
                     </div>
                     <div className='productos-scroll'>
                         {items.map((item, index) => (
-                            <div key={index}>
-                                <div className="lista-producto">
-                                    <div className="img-producto">
-                                        <img src={item.UrlImagen} alt="img producto" />
-                                    </div>
-                                    <div className='lista-producto-container'>
-                                        <div className='producto-nombre4'>{`${item.descripcion} ${item.unidadMedida}`}</div>
-                                        <div className='producto-detalle4'>
-                                            <div className="cantidad4">
-                                                <h3>{item.Cantidad}</h3>
-                                            </div>
-                                            <div className="precio-unitario4">
-                                                <h3>S/ {decimalAdjust("round", item.Precio, -2)}</h3>
-                                            </div>
-                                            <div className="total-precio4">
-                                                <h3>S/ {decimalAdjust("round", item.Total, -2)}</h3>
-                                            </div>
+                            <div className="lista-producto" key={index}>
+                                <div className="img-producto">
+                                    <img src={item.UrlImagen} alt="img producto" />
+                                </div>
+                                <div className='lista-producto-container'>
+                                    <div className='producto-nombre4'>{`${item.descripcion} ${item.unidadMedida}`}</div>
+                                    <div className='producto-detalle4'>
+                                        <div className="cantidad4">
+                                            <h3>{item.Cantidad}</h3>
+                                        </div>
+                                        <div className="precio-unitario4">
+                                            <h3>S/ {decimalAdjust("round", item.Precio, -2)}</h3>
+                                        </div>
+                                        <div className="total-precio4">
+                                            <h3>S/ {decimalAdjust("round", item.Total, -2)}</h3>
                                         </div>
                                     </div>
-                                    <button type="button" onClick={() => eliminarItem(index)}>
-                                        <img src={menosIcon} alt="MENOS" />
-                                    </button>
                                 </div>
+                                <button className="button-menos2" type="button" onClick={() => eliminarItem(index)}>
+                                    <img src={menosIcon} alt="MENOS" />
+                                </button>
                             </div>
                         )) }
                     </div>
@@ -143,7 +141,7 @@ const Checkout = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" onClick={() => agregarPromocion(index)}>
+                                <button className="button-mas2" type="button" onClick={() => agregarPromocion(index)}>
                                     <img src={masIcon} alt="MAS" />
                                 </button>
                             </div>

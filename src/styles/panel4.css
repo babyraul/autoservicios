@@ -187,3 +187,63 @@ body {
     }
 
 }
+
+
+/* ESTILOS RESPONSIVOS PARA TELÉFONOS PEQUEÑOS (menos de 600px) */
+@media (max-width: 600px) {
+    /* Ajustar el ticket */
+    .ticket {
+        width: 80%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .titulo {
+        font-size: 30px;
+    }
+
+    .numero-tickect5 {
+        font-size: 30px;
+        width: 150px;
+    }
+
+    /* Ajustar la información del cliente */
+    .cliente {
+        flex-direction: column;
+        font-size: 14px;
+        align-items: flex-start;
+    }
+
+    .nombre-left, .nombre-right {
+        text-align: left;
+        margin-left: 0;
+    }
+
+    /* Ajustar los botones en el pie de página */
+    .footer5 {
+        align-items: center;
+        height: auto;
+        padding: 10px;
+        width: 95%;
+    }
+
+    .btn-back5, .btn-continue5 {
+        width: 80%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    /* Ajustar el total */
+    .total-container {
+        font-size: 18px;
+    }
+
+    .total {
+        font-size: 20px;
+    }
+
+    .precio-total {
+        font-size: 24px;
+    }
+}

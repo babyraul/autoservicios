@@ -349,7 +349,6 @@ button:hover img {
         flex-direction: column;
         height: 1130px;
         display: flex;
-        justify-content: center;
         align-items: center;
     }
 
@@ -479,5 +478,109 @@ button:hover img {
     button img {
         width: 30px;
         height: 30px;
+    }
+}
+/* --------------------DISEÑO telefono ------------------------------ */
+
+@media screen and (max-width: 500px) {
+
+
+    /* Input */
+    .input-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-container .input {
+        width: 80%;
+        font-size: 12px;
+    }
+
+    /* Ajustes generales */
+    .content6 {
+        display: flex;
+        flex-direction: column;
+        height: 87vh; 
+        align-items: center;
+    }
+
+
+    .section-left2 {
+        width: 90%;
+        margin: 0;
+        padding: 5px;
+        height: 60%;
+    }
+    .section-right2 {
+        width: 90%;
+        margin: 0;
+        padding: 5px;
+        height: 40%;
+    }
+
+    /* Productos */
+    .productos {
+        flex-wrap: wrap;
+        gap: 5px;
+        max-height: 100px;
+    }
+
+    .producto {
+        width: 90px;
+        height: 108px;
+    }
+
+    .producto-imagen {
+        width: 60px;
+        height: 60px;
+    }
+
+    .producto-precio-container {
+        width: 90px;
+        height: 34px;
+    }
+
+    .producto-nombre {
+        font-size: 8px;
+    }
+
+    .producto-precio {
+        font-size: 10px;
+    }
+
+
+    /* Pie de página */
+    .footer2 {
+        align-items: center;
+        height: auto;
+        padding: 10px;
+        width: 95%;
+    }
+
+    .btn-back2,
+    .btn-continue2 {
+        width: 20%;
+        margin: 5px 0;
+        padding: 10px;
+        font-size: 12px;
+    }
+    .movimiento-productos2{
+        width: 100%;
+    }
+
+    /* Botones */
+
+    .button-mas{
+        margin: 0px;
+    }
+
+    .button-menos{
+        margin: 0px;
+    }
+    .total2{
+        font-size: 12px;
+    }
+    .precio-total2{
+        font-size: 16px;
     }
 }
