@@ -16,14 +16,15 @@ function App() {
   const [logoUrl, setLogoUrl] = useState("");
 
   useEffect(() => {
-    const task = async () => {
-      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        await fetchCookies()
-      }
-      await fetchSessionInfo();
-    }
+    fetchSessionInfo();
+    // const task = async () => {
+    //   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    //     await fetchCookies()
+    //   }
+    //   await fetchSessionInfo();
+    // }
 
-    task()
+    // task()
   }, []);
 
   useEffect(() => {
@@ -42,26 +43,26 @@ function App() {
     setLogoUrl(`${sessionInfo.imagenesUrl}/media/${sessionInfo.Ruc}/logo.png`)
   }, [sessionInfo])
 
-  const fetchCookies = async () => {
-    try {
-      await fetch("/api/auth/login", {
-        body: JSON.stringify({
-          password: "159456",
-          username: "qalima"
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      });
-      const req = await fetch("/api/auth/sesion");
-      if (!req.ok) {
-        throw new Error(await req.text())
-      }
-    } catch (e) {
-      console.error(e)
-    }
-  }
+  // const fetchCookies = async () => {
+  //   try {
+  //     await fetch("/api/auth/login", {
+  //       body: JSON.stringify({
+  //         password: "159456",
+  //         username: "qalima"
+  //       }),
+  //       headers: {
+  //         "Content-Type": "application/json"
+  //       },
+  //       method: "POST"
+  //     });
+  //     const req = await fetch("/api/auth/sesion");
+  //     if (!req.ok) {
+  //       throw new Error(await req.text())
+  //     }
+  //   } catch (e) {
+  //     console.error(e)
+  //   }
+  // }
 
   const fetchSessionInfo = async () => {
     const req = await fetch('/api/auth/sesion');

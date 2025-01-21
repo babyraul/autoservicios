@@ -75,7 +75,7 @@ const Completed = () => {
 
             const data = await req.json();
 
-            console.log(data)
+            // console.log(data)
 
             setTicket(`PV-${data.IdPreventa}`)
             detallePreventa(data.IdPreventa)
