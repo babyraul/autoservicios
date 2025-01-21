@@ -361,3 +361,94 @@ main {
     }
 }
 
+/* Estilos responsivos para teléfonos pequeños */
+@media (max-width: 600px) {
+
+    /* Ajustar el fondo */
+    body {
+        background-size: cover;
+        background-attachment: scroll; /* Optimización para móviles */
+    }
+
+
+    /* Main */
+    main {
+        padding: 10px;
+    }
+
+    /* Formulario */
+    .identification-form {
+        font-size: 16px;
+        margin: 15px;
+        text-align: center;
+    }
+
+    .identification-form label {
+        margin-right: 10px;
+    }
+
+    .id-number {
+        width: 90%;
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    /* Teclado */
+    .teclado-numerico-container {
+        margin: 0px;
+    }
+
+    .teclado-numerico {
+        grid-template-columns: repeat(3, 1fr);
+        width: auto;
+        height: auto;
+    }
+
+    .teclado-numerico button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .acciones {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center;
+    }
+
+    .acciones button {
+        width: 70px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    /* Cliente */
+    .cliente3 {
+        margin: 0px;
+        text-align: center;
+    }
+
+    .cliente3 h2 {
+        font-size: 12px;
+    }
+
+    /* Pie de página */
+    .footer3 {
+        align-items: center;
+        height: auto;
+        padding: 10px;
+        width: 95%;
+    }
+
+    .btn-back3, .btn-continue3 {
+        width: 20%;
+        margin: 5px 0;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .img-scan {
+        display: none;
+    }
+}
+

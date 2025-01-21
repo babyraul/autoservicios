@@ -112,3 +112,53 @@ video {
 .btn-continue1:hover {
   background-color: #00d2c7;
 }
+
+/* --------------------DISEÑO TELEFONO ------------------------------ */
+
+
+@media (max-width: 600px) {
+  body {
+    background-size: cover;
+    background-position: center;
+  }
+
+
+  /* Modal */
+  .modal-content {
+    width: 95%; /* Reduce el ancho del modal */
+    height: auto; /* Permite ajuste automático */
+    padding: 10px;
+  }
+
+  video {
+      width: 100%;
+      height: auto; /* Ajusta la altura al ancho disponible */
+  }
+
+  /* Logo */
+  .logo {
+    width: 120px; /* Reduce el tamaño del logo */
+    height: auto;
+    margin: 10px auto; /* Centra el logo */
+  }
+
+  .logo-empresa {
+    max-width: 80%; /* Escala el tamaño en pantallas pequeñas */
+    margin-top: 20px;
+  }
+
+  /* PIE DE PÁGINA */
+  .footer1 {
+    flex-direction: column; /* Apila los elementos */
+    justify-content: center; /* Centra el contenido */
+    padding: 10px;
+    height: auto;
+  }
+
+  .btn-continue1 {
+    width: 90%; /* Ocupa la mayor parte del ancho */
+    font-size: 16px; /* Reduce el tamaño del texto */
+    padding: 10px;
+    margin: 10px 0;
+  }
+}

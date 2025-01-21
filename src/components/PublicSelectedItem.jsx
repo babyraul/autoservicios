@@ -14,7 +14,7 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
 
     return (
         <div className="Producto-item2">
-            <button type="button">
+            <button className="button-menos" type="button">
                 <img
                     src={imenos}
                     alt="MENOS"
@@ -43,7 +43,7 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
                     </div>
                 </div>
             </div>
-            <button type="button"><img src={imas} alt="MAS" onClick={() => {
+            <button className="button-mas" type="button"><img src={imas} alt="MAS" onClick={() => {
                 updateQuantity(item.Cantidad + 1)
             }}/></button>
         </div>

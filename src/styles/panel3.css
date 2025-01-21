@@ -339,3 +339,113 @@ button:hover img {
         box-sizing: border-box;
     }
 }
+
+@media (max-width: 600px) {
+    .main4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 85vh; 
+    }
+
+    /* Ajustes para la sección izquierda */
+    .section-left {
+        margin: 0;
+        width: 95%;
+        height: 4cqh; /* Ocupa la mitad de la altura disponible */
+    }
+
+    /* Ajustes para la sección derecha */
+    .section-right {
+        margin: 0;
+        width: 95%;
+        height: 30%; /* Ocupa la otra mitad de la altura disponible */
+    }
+
+    .productos-scroll {
+        margin: 0px;
+        max-height: 500px;
+    }
+    .lista-producto{
+        width: 100%;
+
+    }
+
+    .titulo-productos {
+        font-size: 10px;
+    }
+
+    .producto-nombre4 {
+        font-size: 12px;
+    }
+
+    .button-menos2{
+        margin: 0px 10px;
+    }
+
+    .cantidad4, .precio-unitario4, .total-precio4 {
+        font-size: 9px;
+    }
+
+    /* Ajustes para la sección derecha */
+
+    .productos-promo-scroll {
+        max-height: 400px;
+    }
+
+
+    .lista-producto-promo-content {
+        flex-direction: column;
+        width: auto;
+    }
+
+    .lista-producto-promo {
+        padding: 5px;
+    }
+
+    .nombre-producto4,
+    .precio-producto4 {
+        font-size: 12px;
+    }
+
+
+    .button-mas2{
+        margin: 0px 10px;
+    }
+
+    /* Botones */
+    .btn-back, .btn-continue {
+        font-size: 14px;
+        padding: 10px;
+        width: 40%;
+        margin-right: 5px;
+    }
+
+    /* Footer */
+    .footer {
+        align-items: center;
+        height: auto;
+        padding: 10px;
+        width: 95%;
+    }
+
+    /* Títulos */
+    .title {
+        font-size: 20px;
+    }
+
+    /* Ajustar imágenes */
+    .img-producto img {
+        width: 40px;
+        height: 40px;
+    }
+
+    button img {
+        width: 30px;
+        height: 30px;
+    }
+
+    button:hover img {
+        transform: scale(1.05);
+    }
+}
