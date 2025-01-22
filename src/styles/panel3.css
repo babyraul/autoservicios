@@ -361,6 +361,9 @@ button:hover img {
         width: 95%;
         height: 30%; /* Ocupa la otra mitad de la altura disponible */
     }
+    .fijado2{
+        height: 350px;
+    }
 
     .productos-scroll {
         margin: 0px;

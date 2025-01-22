@@ -257,7 +257,7 @@ const IdentifyClient = () => {
                     readOnly
                     autoFocus
                 />
-
+                
                 <Link
                     to="/checkout"
                     className="omitir"
@@ -268,9 +268,6 @@ const IdentifyClient = () => {
             
                 
                 <div className="teclado-numerico-container">
-                    <div className="img-scan">
-                        <img src={imgScan} alt="DNI" />
-                    </div>
                     <div className="teclado-numerico">
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, '', 0, ''].map((num, index) => (
                         <button key={index} type="button" onClick={() => addNumber(num.toString())}>
