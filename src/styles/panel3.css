@@ -346,17 +346,15 @@ button:hover img {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 85vh; 
+        height: 80vh; 
     }
 
-    /* Ajustes para la sección izquierda */
     .section-left {
         margin: 0;
         width: 95%;
         height: 4cqh; 
     }
 
-    /* Ajustes para la sección derecha */
     .section-right {
         margin: 0;
         width: 95%;
@@ -364,6 +362,10 @@ button:hover img {
     }
     .fijado2{
         height: 260px;
+    }
+    .fijado {
+        height: 260px;
+
     }
 
     .productos-scroll {
@@ -429,12 +431,10 @@ button:hover img {
         width: 95%;
     }
 
-    /* Títulos */
     .title {
         font-size: 20px;
     }
 
-    /* Ajustar imágenes */
     .img-producto img {
         width: 40px;
         height: 40px;
