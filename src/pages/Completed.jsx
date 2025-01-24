@@ -72,8 +72,9 @@ const Completed = () => {
 
                 return;
             }
+            //
 
-            const data = await req.json();
+            // const data = await req.json();
 
             //
             console.log(data)
