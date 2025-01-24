@@ -243,7 +243,6 @@ button:hover img {
     top: 0;
     z-index: 10;
     width: 100%;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -340,6 +339,8 @@ button:hover img {
     }
 }
 
+/* --------------------DISEÑO telefono ------------------------------ */
+
 @media (max-width: 600px) {
     .main4 {
         display: flex;
@@ -352,17 +353,17 @@ button:hover img {
     .section-left {
         margin: 0;
         width: 95%;
-        height: 4cqh; /* Ocupa la mitad de la altura disponible */
+        height: 4cqh; 
     }
 
     /* Ajustes para la sección derecha */
     .section-right {
         margin: 0;
         width: 95%;
-        height: 30%; /* Ocupa la otra mitad de la altura disponible */
+        height: 30%; 
     }
     .fijado2{
-        height: 350px;
+        height: 260px;
     }
 
     .productos-scroll {
@@ -390,8 +391,6 @@ button:hover img {
         font-size: 9px;
     }
 
-    /* Ajustes para la sección derecha */
-
     .productos-promo-scroll {
         max-height: 400px;
     }
@@ -416,7 +415,6 @@ button:hover img {
         margin: 0px 10px;
     }
 
-    /* Botones */
     .btn-back, .btn-continue {
         font-size: 14px;
         padding: 10px;
@@ -424,7 +422,6 @@ button:hover img {
         margin-right: 5px;
     }
 
-    /* Footer */
     .footer {
         align-items: center;
         height: auto;

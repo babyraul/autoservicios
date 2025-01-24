@@ -388,10 +388,14 @@ button:hover img {
 }
 
 /* --------------------DISEÑO TABLET SIN FULLSCREEN------------------------------ */
-@media (max-width: 1000px) and (max-height: 430px) {
+@media screen and (max-width: 1000px) {
 
     .content6{
         height: 300px;
+        display: flex;
+        flex-direction: column;
+        height: 87vh; 
+        align-items: center;
     }
     .section-left2{
         width: 95%;
@@ -567,8 +571,6 @@ button:hover img {
         width: 100%;
     }
 
-    /* Botones */
-
     .button-mas{
         margin: 0px;
     }
@@ -583,3 +585,6 @@ button:hover img {
         font-size: 16px;
     }
 }
+
+    /* Botones */
+
