@@ -189,7 +189,7 @@ body {
 }
 
 
-/* ESTILOS RESPONSIVOS PARA TELÉFONOS PEQUEÑOS (menos de 600px) */
+/* --------------------DISEÑO telefono ------------------------------ */
 @media (max-width: 600px) {
     /* Ajustar el ticket */
     .ticket {
@@ -210,8 +210,11 @@ body {
     /* Ajustar la información del cliente */
     .cliente {
         flex-direction: column;
-        font-size: 14px;
-        align-items: flex-start;
+        font-size: 10px;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+        justify-content: flex-start;
     }
 
     .nombre-left, .nombre-right {
