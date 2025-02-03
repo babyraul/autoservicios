@@ -7,7 +7,6 @@ export default defineConfig({
   base: '/autoservicios/',
   server: {
     proxy: {
-     //'/api': 'http://localhost:3000/',
      '/api': 'https://qaerp.mifacturaperu.com',
     }
   }
