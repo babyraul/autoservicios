@@ -149,8 +149,8 @@ video {
 
   /* PIE DE PÁGINA */
   .footer1 {
-    flex-direction: column; /* Apila los elementos */
-    justify-content: center; /* Centra el contenido */
+    flex-direction: column;
+    justify-content: center;
     padding: 10px;
     height: auto;
   }
@@ -161,4 +161,27 @@ video {
     padding: 10px;
     margin: 10px 0;
   }
+}
+
+@media screen and (max-width: 1000px) {
+
+  .footer1 {
+    display: flex;
+    justify-content: right;
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+    height: 40px;
+    padding: 0px;
+    margin-bottom: 10px;
+    margin: 20px;
+  }
+  .btn-continue1 {
+    width: 15%;
+    margin: 5px 0;
+    padding: 10px;
+    height: 40%;
+    font-size: 12px;
+  }
+
 }

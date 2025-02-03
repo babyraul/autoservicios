@@ -14,7 +14,7 @@ const PublicTotalViewer = ({ totales, items, alias, clientData, prev, next, butt
         {
             items.length >= 0 && (
                 useLink ? <Link to={next} className="btn-continue2" state={{ items, totales, alias, clientData }}>{buttonText}</Link> :
-                <button role="button" onClick={onClick} className="btn-continue2">{buttonText}</button>
+                <a role="button" onClick={onClick} className="btn-continue2">{buttonText}</a>
             )
         }
     </>

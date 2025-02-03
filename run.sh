@@ -13,7 +13,7 @@ case $opcion in
         ;;
     2)
         echo "Iniciando Vite en la dirección 192.168.212.79..."
-        npx vite --host 192.168.212.79
+        npx vite --host 192.168.212.28
         ;;
     *)
         echo "Opción no válida. Saliendo del script."

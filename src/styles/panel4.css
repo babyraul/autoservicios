@@ -188,6 +188,29 @@ body {
 
 }
 
+/* --------------------DISEÑO TABLET SIN FULLSCREEN------------------------------ */
+@media screen and (max-width: 1000px) {
+
+    .footer5 {
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        padding: 0px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    .btn-continue5 {
+        width: 90%;
+        margin: 5px auto;
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
 
 /* --------------------DISEÑO telefono ------------------------------ */
 @media (max-width: 600px) {
