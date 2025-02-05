@@ -87,7 +87,7 @@ main {
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    margin: 20px auto;
+    margin: 0px auto;
     margin-right: 236px;
 }
 
@@ -224,8 +224,8 @@ main {
     }
 
     .teclado-numerico {
-        width: 400px;
-        height: 500px;
+        width: 300px;
+        height: 400px;
         grid-template-columns: repeat(3, 1fr);
         padding: 10px;
     }
@@ -264,6 +264,26 @@ main {
     .cliente3 .static-text {
         color: #01a59c;
         font-weight: bold;
+    }
+    /* Pie de página */
+    .footer3 {
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        width: 95%;
+        height: 40px;
+        padding: 0px;
+        margin-bottom: 10px;
+        margin: 20px;
+    }
+
+    .btn-back3, .btn-continue3 {
+        width: 15%;
+        margin: 5px 0;
+        padding: 10px;
+        height: 40%;
+        font-size: 12px;
     }
 
 }
