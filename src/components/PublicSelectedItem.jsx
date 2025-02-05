@@ -1,9 +1,13 @@
+import React, { useState } from "react";
 import { decimalAdjust } from "../global";
 import imenos from "../assets/images/menos.png"
 import imas from "../assets/images/mas2.png"
 
 
 const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [observation, setObservation] = useState(item.observacion || "");
+
     const updateQuantity = (quantity) => {
         if (typeof onUpdateQuantity != "function") {
             return;
@@ -11,6 +15,26 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
 
         onUpdateQuantity(quantity);
     };
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    }
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false); 
+    }
+
+    const handleObservationChange = (e) => {
+        setObservation(e.target.value);
+    }
+
+    const handleSubmitObservation = () => {
+        if (typeof onAddObservation === "function") {
+            onAddObservation(item, observation);
+        }
+        handleCloseModal();
+    }
+
 
     return (
         <div className="Producto-item2">
@@ -29,7 +53,7 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
                     }}
                 />
             </button>
-            <div className="lista-producto2">
+            <div className="lista-producto2" onClick={handleOpenModal}>
                 <div className="producto-nombre2">{`${item.descripcion} ${item.unidadMedida}`}</div>
                 <div className="producto-detalles">
                     <div className="cantidad">
@@ -46,6 +70,24 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
             <button className="button-mas" type="button"><img src={imas} alt="MAS" onClick={() => {
                 updateQuantity(item.Cantidad + 1)
             }}/></button>
+
+            {isModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-content2">
+                        <h3>AGREGA UNA OPSERVACION</h3>
+                        <textarea
+                            value={observation}
+                            onChange={handleObservationChange}
+                            placeholder="ESCRIBE"
+                            rows={4}
+                        />
+                        <div className="modal-actions">
+                            <button className="action-modal2" onClick={handleObservationChange } value={"llevar"}>LLEVAR</button>
+                            <button className="action-modal2" onClick={handleSubmitObservation && handleCloseModal}>GUARDAR</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

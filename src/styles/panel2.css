@@ -273,9 +273,9 @@ main {
         bottom: 0;
         width: 95%;
         height: 40px;
-        padding: 0px;
+        margin: 0px;
         margin-bottom: 10px;
-        margin: 20px;
+        
     }
 
     .btn-back3, .btn-continue3 {
