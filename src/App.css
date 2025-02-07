@@ -85,11 +85,11 @@ video {
 /* PIE DE PÁGINA */
 .footer1 {
   display: flex;
-  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  justify-content: space-between;
   padding: 20px;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 90%;
   height: 60px;
 }
 
@@ -166,18 +166,14 @@ video {
 @media screen and (max-width: 1000px) {
 
   .footer1 {
-    display: flex;
-    justify-content: right;
-    position: fixed;
-    bottom: 0;
-    width: 90%;
-    height: 40px;
-    padding: 0px;
+    flex-direction: column;
+    align-items: flex-end;
+    height: auto;
+    padding: 10px;
     margin-bottom: 10px;
-    margin: 20px;
   }
   .btn-continue1 {
-    width: 15%;
+    width: 20%;
     margin: 5px 0;
     padding: 10px;
     height: 40%;
