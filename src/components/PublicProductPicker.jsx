@@ -8,14 +8,9 @@ import PublicProduct from "./PublicProduct";
 import '../styles/panel1.css';
 
 
-const PublicProductPicker = ({ onChooseProduct, onUpdateAlias }) => {
+const PublicProductPicker = ({ onChooseProduct, alias, onUpdateAlias }) => {
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [alias, setAlias] = useState("");
-
-    useEffect(() => {
-        onUpdateAlias(alias)
-    }, [alias])
 
     const fetchProductos = async (q) => {
         const req = await fetch(`/api/preVentas/?search=${q}&idTipoStock=${TIPO_STOCK.CON_COMPROBANTE}`);
@@ -50,15 +45,10 @@ const PublicProductPicker = ({ onChooseProduct, onUpdateAlias }) => {
         debounceSearch(value);
     };
 
-    const handleAliasChange = (e) => {
-        setAlias(e.target.value);  // Actualiza el alias
-    };
-
-
     return <>
         <div className="input-container">
             <input type="text" placeholder="Buscar" className="input" value={searchTerm} onChange={handleSearch} autoFocus/>
-            <input type="text" placeholder="Alias" className="input" value={alias} onChange={handleAliasChange}/>
+            <input type="text" placeholder="Alias" className="input" value={alias} onChange={(e) => onUpdateAlias(e.target.value)}/>
         </div>
 
         <div className="productos">

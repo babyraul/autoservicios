@@ -23,6 +23,13 @@ const ProductPicker = () => {
 
     useEffect(() => {
         const {items, totales} = location.state || {};
+        const query = new URLSearchParams(window.location.search);
+        const alias = query.get('alias');
+        setAlias(alias);
+
+        if (!!query.get('next')) {
+            sessionStorage.setItem('next_url', query.get('next'))
+        }
 
         if (Array.isArray(items) && !!totales) {
             setItems(items);
@@ -97,7 +104,7 @@ const ProductPicker = () => {
         </div>
         <div className="content6">
             <div className="section-left2">
-                <PublicProductPicker onChooseProduct={onChooseProduct} onRemoveItem={removeItem} onUpdateAlias={a => setAlias(a)} />
+                <PublicProductPicker onChooseProduct={onChooseProduct} onRemoveItem={removeItem} alias={alias} onUpdateAlias={a => setAlias(a)} />
             </div>
 
             <div className="section-right2">
