@@ -106,7 +106,6 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    overflow: hidden;
 }
 
 .fijado {
@@ -465,9 +464,6 @@ button:hover img {
     .section-left{
         width: 95%;
         margin: 5px 0;
-        height: auto;
-        max-height: 350px;
-        overflow-y: auto;
         padding: 0px;
     }
     .section-right{
