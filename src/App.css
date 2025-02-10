@@ -1,6 +1,6 @@
 /* Estilos generales del cuerpo */
 body {
-  background-image: url('./assets/images/fondo_sistema.png'); /* Ajustar la ruta para React */
+  background-image: url('./assets/images/fondo_sistema.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro y semi-transparente */
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +49,7 @@ body {
 .modal-content {
   width: 90%;
   height: 90%;
-  background-color: black; /* Fondo negro */
+  background-color: black;
 }
 
 video {
@@ -125,25 +125,25 @@ video {
 
   /* Modal */
   .modal-content {
-    width: 95%; /* Reduce el ancho del modal */
-    height: auto; /* Permite ajuste automático */
+    width: 95%;
+    height: auto;
     padding: 10px;
   }
 
   video {
       width: 100%;
-      height: auto; /* Ajusta la altura al ancho disponible */
+      height: auto;
   }
 
   /* Logo */
   .logo {
-    width: 120px; /* Reduce el tamaño del logo */
+    width: 120px;
     height: auto;
-    margin: 10px auto; /* Centra el logo */
+    margin: 10px auto;
   }
 
   .logo-empresa {
-    max-width: 80%; /* Escala el tamaño en pantallas pequeñas */
+    max-width: 80%;
     margin-top: 20px;
   }
 
@@ -156,8 +156,8 @@ video {
   }
 
   .btn-continue1 {
-    width: 90%; /* Ocupa la mayor parte del ancho */
-    font-size: 16px; /* Reduce el tamaño del texto */
+    width: 90%;
+    font-size: 16px;
     padding: 10px;
     margin: 10px 0;
   }

@@ -54,7 +54,7 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
                 />
             </button>
             <div className="lista-producto2" onClick={handleOpenModal}>
-                <div className="producto-nombre2">{`${item.descripcion} ${item.unidadMedida}`}</div>
+                <div className="producto-nombre2">{`${item.descripcion} ${item.unidadMedida} ${item.observacion}`}</div>
                 <div className="producto-detalles">
                     <div className="cantidad">
                         <h3>{item.Cantidad}</h3>
@@ -74,7 +74,7 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content2">
-                        <h3>AGREGA UNA OPSERVACION</h3>
+                        <h3>AGREGA UNA OBSERVACION</h3>
                         <textarea
                             value={observation}
                             onChange={handleObservationChange}
@@ -82,7 +82,7 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
                             rows={4}
                         />
                         <div className="modal-actions">
-                            <button className="action-modal2" onClick={handleObservationChange } value={"llevar"}>LLEVAR</button>
+                            <button className="action-modal2" onClick={() => setObservation("llevar")}>LLEVAR</button>
                             <button className="action-modal2" onClick={handleSubmitObservation && handleCloseModal}>GUARDAR</button>
                         </div>
                     </div>
