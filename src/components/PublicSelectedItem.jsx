@@ -4,15 +4,14 @@ import imenos from "../assets/images/menos.png"
 import imas from "../assets/images/mas2.png"
 
 
-const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
+const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem, onAddObservation }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [observation, setObservation] = useState(item.observacion || "");
 
     const updateQuantity = (quantity) => {
-        if (typeof onUpdateQuantity != "function") {
+        if (typeof onUpdateQuantity !== "function") {
             return;
         }
-
         onUpdateQuantity(quantity);
     };
 
@@ -21,7 +20,7 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
     }
 
     const handleCloseModal = () => {
-        setIsModalOpen(false); 
+        setIsModalOpen(false);
     }
 
     const handleObservationChange = (e) => {
@@ -30,11 +29,10 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
 
     const handleSubmitObservation = () => {
         if (typeof onAddObservation === "function") {
-            onAddObservation(item, observation);
+            onAddObservation( observation); 
         }
         handleCloseModal();
     }
-
 
     return (
         <div className="Producto-item2">
@@ -54,7 +52,8 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
                 />
             </button>
             <div className="lista-producto2" onClick={handleOpenModal}>
-                <div className="producto-nombre2">{`${item.descripcion} ${item.unidadMedida} ${item.observacion}`}</div>
+                <div className="producto-nombre2">{`${item.descripcion} ${item.unidadMedida}`}</div>
+                {observation && <div className="producto-nombre2">{observation}</div>}
                 <div className="producto-detalles">
                     <div className="cantidad">
                         <h3>{item.Cantidad}</h3>
@@ -67,9 +66,15 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
                     </div>
                 </div>
             </div>
-            <button className="button-mas" type="button"><img src={imas} alt="MAS" onClick={() => {
-                updateQuantity(item.Cantidad + 1)
-            }}/></button>
+            <button className="button-mas" type="button">
+                <img
+                    src={imas}
+                    alt="MAS"
+                    onClick={() => {
+                        updateQuantity(item.Cantidad + 1);
+                    }}
+                />
+            </button>
 
             {isModalOpen && (
                 <div className="modal-overlay">
@@ -83,13 +88,12 @@ const PublicSelectedItem = ({ item, onUpdateQuantity, onRemoveItem }) => {
                         />
                         <div className="modal-actions">
                             <button className="action-modal2" onClick={() => setObservation("llevar")}>LLEVAR</button>
-                            <button className="action-modal2" onClick={handleSubmitObservation && handleCloseModal}>GUARDAR</button>
+                            <button className="action-modal2" onClick={handleSubmitObservation }>GUARDAR</button>
                         </div>
                     </div>
                 </div>
             )}
         </div>
-    )
-}
-
+    );
+};
 export default PublicSelectedItem;
