@@ -23,7 +23,15 @@ const ProductPicker = () => {
     };
 
     useEffect(() => {
-        const { items, totales } = location.state || {};
+
+        const {items, totales} = location.state || {};
+        const query = new URLSearchParams(window.location.search);
+        const alias = query.get('alias');
+        setAlias(alias);
+
+        if (!!query.get('next')) {
+            sessionStorage.setItem('next_url', query.get('next'))
+        }
 
         if (Array.isArray(items) && !!totales) {
             setItems(items);
@@ -107,7 +115,7 @@ const ProductPicker = () => {
                 <div className="navbar-left2">
                     <img src={logo} alt="Mi Factura Perú" className="logo" />
                 </div>
-            </div>
+
             <div className="content6">
                 <div className="section-left2">
                     <PublicProductPicker onChooseProduct={onChooseProduct} onRemoveItem={removeItem} onUpdateAlias={a => setAlias(a)} />

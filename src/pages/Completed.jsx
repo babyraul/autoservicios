@@ -13,9 +13,17 @@ const Completed = () => {
     const [ticket, setTicket] = useState();
 
     useEffect(() => {
+        const nextUrl = sessionStorage.getItem('next_url');
+
+        const msTime = !!nextUrl ? 3_000 : 30_000;
+
         const timer = setTimeout(() => {
-            window.location.href = "/autoservicios/"
-        }, 30_000);
+            if (!!nextUrl) {
+                window.location.href = nextUrl
+            } else {
+                window.location.href = "/autoservicios/"
+            }
+        }, msTime);
 
         return () => clearTimeout(timer);
     }, [navigate])
@@ -83,9 +91,14 @@ const Completed = () => {
     }, [])
 
     const detallePreventa = async (preventa) => {
-        const req = await fetch(`/api/gestionpreventas/preventa/${preventa}`)
-        const data = await req.json();
-        printTicket(data.respuesta[0]);
+        const nextUrl = sessionStorage.getItem('next_url');
+
+        if (!nextUrl) {
+            const req = await fetch(`/api/gestionpreventas/preventa/${preventa}`)
+            const data = await req.json();
+            
+            printTicket(data.respuesta[0]);
+        }
     }
 
     return <div>
