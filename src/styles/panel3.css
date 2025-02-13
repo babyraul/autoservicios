@@ -318,7 +318,7 @@ button:hover img {
         order: 1;
         width: 600px;
         margin: 10px 0;
-        max-height: 580px;
+        max-height: 540px;
     }
 
     .section-right {
@@ -458,7 +458,7 @@ button:hover img {
         height: 300px;
         display: flex;
         flex-direction: column;
-        height: 87vh; 
+        height: 81vh; 
         align-items: center;
     }
     .section-left{
@@ -484,7 +484,7 @@ button:hover img {
 
     .productos-scroll {
         margin: 0px;
-        max-height: 500px;
+        max-height: 455px;
     }
     .lista-producto{
         width: 100%;
