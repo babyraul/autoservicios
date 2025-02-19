@@ -319,9 +319,6 @@ main {
         margin: 5px;
     }
 
-
-
-
     /* CLIENTE */
     .cliente3 {
         margin-left: 10px;
@@ -338,12 +335,11 @@ main {
 
     /* PIE DE PÁGINA */
     .footer3 {
-        flex-direction: column;
+        align-items: center;
         height: auto;
+        width: auto;
         padding: 10px;
     }
-
-
 
     /* INPUT */
     .id-number {
