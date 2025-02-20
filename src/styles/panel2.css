@@ -289,31 +289,27 @@ main {
 }
 
 /* Media Query para pantallas de 950x430 */
-@media screen and (max-width: 950px) and (max-height: 430px) {
+/* --------------------DISEÑO TABLET SIN FULLSCREEN------------------------------ */
+
+@media screen and (max-width: 1000px) {
     /* MAIN */
-    main {
-        padding: 10px;
-        flex-direction: column;
-    }
+
 
     /* Teclado numerico */
     .teclado-numerico-container {
-        flex-direction: column;
+        flex-direction: row;
         margin: 10px auto;
         align-items: center;
     }
 
     .teclado-numerico {
-        width: 90;
         padding: 10px;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
 
     .teclado-numerico button {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
+        font-size: 30px;
     }
 
     .acciones button {
@@ -321,23 +317,6 @@ main {
         height: 50px;
         font-size: 16px;
         margin: 5px;
-    }
-
-    /* ENCABEZADO */
-    .navbar {
-        flex-direction: column;
-        padding: 5px;
-    }
-
-    .navbar-left {
-        flex-basis: 100%;
-        height: 50px;
-    }
-
-    .logo {
-        width: 120px;
-        height: 50px;
-        margin: 0;
     }
 
     /* CLIENTE */
@@ -356,16 +335,14 @@ main {
 
     /* PIE DE PÁGINA */
     .footer3 {
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        margin-bottom: 10px;
         height: auto;
         padding: 10px;
-    }
-
-    .btn-back3, .btn-continue3 {
-        width: 90%;
-        margin: 5px auto;
-        font-size: 18px;
-        padding: 10px;
+        width: 95%;
     }
 
     /* INPUT */
@@ -381,6 +358,8 @@ main {
         margin: 10px;
     }
 }
+
+
 
 /* Estilos responsivos para teléfonos pequeños */
 @media (max-width: 600px) {
@@ -472,4 +451,3 @@ main {
         display: none;
     }
 }
-

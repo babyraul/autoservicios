@@ -3,7 +3,7 @@
 # Mostrar opciones al usuario
 echo "Selecciona una opción para ejecutar el proyecto:"
 echo "1) npm run dev"
-echo "2) npx vite --host 192.168.212.81"
+echo "2) npx vite --host 192.168.212.255"
 read -p "Introduce el número de la opción: " opcion
 
 case $opcion in
@@ -12,8 +12,8 @@ case $opcion in
         npm run dev
         ;;
     2)
-        echo "Iniciando Vite en la dirección 192.168.212.79..."
-        npx vite --host 192.168.212.28
+        echo "Iniciando Vite en la dirección 192.168.212.28..."
+        npx vite --host 192.168.212.173
         ;;
     *)
         echo "Opción no válida. Saliendo del script."
