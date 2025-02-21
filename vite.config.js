@@ -1,5 +1,8 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
+
+const env = loadEnv('all', process.cwd());
+const apiUrl =  (env.VITE_API_URL || 'https://qaerp.mifacturaperu.com').split(' ')[0]
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -7,7 +10,7 @@ export default defineConfig({
   base: '/autoservicios/',
   server: {
     proxy: {
-     '/api': 'https://qaerp.mifacturaperu.com',
+      '/api': apiUrl,
     }
   }
 })

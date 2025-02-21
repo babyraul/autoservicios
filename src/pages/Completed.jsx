@@ -4,6 +4,7 @@ import logo from '../assets/images/mifacturaperublanco.png';
 import PublicTotalViewer from "../components/PublicTotalViewer";
 import { useLocation, useNavigate } from "react-router";
 import { printTicket } from "../helpers/ticket";
+import { getBasePath } from "../helpers/routing";
 
 const Completed = () => {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Completed = () => {
 
         const timer = setTimeout(() => {
             if (!!nextUrl) {
-                window.location.href = nextUrl
+                window.location.href = getBasePath() + nextUrl
             } else {
                 window.location.href = "/autoservicios/"
             }

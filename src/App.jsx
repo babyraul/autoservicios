@@ -16,16 +16,16 @@ function App() {
   const [logoUrl, setLogoUrl] = useState("");
 
   useEffect(() => {
-    fetchSessionInfo();
-    
     const task = async () => {
-      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        await fetchCookies()
+      const apiUrl = import.meta.env.VITE_API_URL;
+
+      if (!!apiUrl && apiUrl != "" && apiUrl.includes("qaerp")) {
+        await fetchCookies();
       }
     
       await fetchSessionInfo();
     }
-   
+
     task()
   }, []);
 
