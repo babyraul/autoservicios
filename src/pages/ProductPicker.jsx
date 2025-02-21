@@ -13,8 +13,10 @@ const ProductPicker = () => {
     const [items, setItems] = useState([]);
     const [totales, setTotales] = useState({});
     const [alias, setAlias] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [productsFromCombo, setProductsFromCombo] = useState([])
     const navigate = useNavigate();
+
     const location = useLocation();
 
     const removeItem = (product) => {
@@ -53,37 +55,56 @@ const ProductPicker = () => {
         });
     }, [items]);
 
-    const onChooseProduct = (product) => {
+    const onChooseProduct = (...products) => {
         let currentItems = [...items];
-        const productPosition = currentItems.indexOfObject(product, "IdPresentacion");
 
-        let descuentoPersonal = 0;
-
-        if (productPosition !== -1) {
-            currentItems[productPosition].Cantidad++;
-            FindPrecioPorMayor([], currentItems[productPosition]);
-            currentItems[productPosition].Total = calcTotal(currentItems[productPosition]) - currentItems[productPosition].Descuento;
+        if (products.length > 1) {
+            const productos = new Set([...productsFromCombo, ...products.map(p => p.IdPresentacion)]);
+            setProductsFromCombo([...productos])
         } else {
-            FindPrecioPorMayor([], product);
-            product.Descuento = product.Descuento + descuentoPersonal;
+            const producto = products[0];
+            if (productsFromCombo.includes(producto.IdPresentacion)) {
+                alert("No se puede agregar el producto seleccionado.")
+                return;
+            }
+        }
 
-            currentItems.push({
-                ...product,
-                Cantidad: 1,
-                PrecioVenta: product.PrecioVenta,
-                Total: product.PrecioVenta,
-                PrecioEspecial: FindPrecioEspecial([], product),
-                PrecioFamiliar: FindPrecioFamiliar([], product),
-                PrecioCosto: GetPrecioCosto([], product),
-                PrecioMenor: FindPrecioMenor([], product),
-                precioMayor: getPrecioPorMayor([], product),
-                checked: isNumber(product.checked) ? product.checked : 0,
-                oldPrecios: [product.PrecioVenta],
-                initialAfectGrat: product.IdAfectacionIgv,
-                oldCants: [1],
-                NombreProducto: product.descripcion,
-                Descuento: 0
-            });
+        for (const product of products) {
+            const i = currentItems.indexOfObject(product, "IdPresentacion");
+
+            if (i !== -1) {
+                const oldQuantity = currentItems[i].Cantidad;
+                const oldDescuento = currentItems[i].Descuento;
+                const perUnitDescuento = oldDescuento / oldQuantity;
+
+                currentItems[i].Cantidad = currentItems[i].Cantidad + ('Cantidad' in product ? product.Cantidad : 1);
+                currentItems[i].Descuento = perUnitDescuento * currentItems[i].Cantidad;
+                FindPrecioPorMayor([], currentItems[i])
+                currentItems[i].Total = calcTotal(currentItems[i]) - currentItems[i].Descuento
+            } else {
+                FindPrecioPorMayor([], product);
+
+                const detail = {
+                    ...product,
+                    Cantidad: product.Cantidad || 1,
+                    Descuento: product.Descuento * (product.Cantidad || 1),
+                    PrecioVenta: product.PrecioVenta,
+                    PrecioEspecial: FindPrecioEspecial([], product),
+                    PrecioFamiliar: FindPrecioFamiliar([], product),
+                    PrecioCosto: GetPrecioCosto([], product),
+                    PrecioMenor: FindPrecioMenor([], product),
+                    precioMayor: getPrecioPorMayor([], product),
+                    checked: isNumber(product.checked) ? product.checked : 0,
+                    oldPrecios: [product.PrecioVenta],
+                    initialAfectGrat: product.IdAfectacionIgv,
+                    oldCants: [1],
+                    NombreProducto: product.descripcion
+                }
+    
+                detail.Total = calcTotal(detail) - detail.Descuento
+
+                currentItems.push(detail);
+            }
         }
 
         setItems([...currentItems]);

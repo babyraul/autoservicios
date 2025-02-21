@@ -6,11 +6,24 @@ import { setPreciosYDescuento } from "../helpers/calcularVenta";
 import PublicProduct from "./PublicProduct";
 
 import '../styles/panel1.css';
+import PublicCombo from "./PublicCombo";
 
 
 const PublicProductPicker = ({ onChooseProduct, alias, onUpdateAlias }) => {
     const [products, setProducts] = useState([]);
+    const [combos, setCombos] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+
+    const fetchCombos = async (q) => {
+        const req = await fetch(`/api/combos`);
+        const combos = await req.json();
+
+        if (q == "") {
+            setCombos(combos);
+        } else {
+            setCombos(combos.filter(c => c.Nombre.includes(q)));
+        }
+    }
 
     const fetchProductos = async (q) => {
         const req = await fetch(`/api/preVentas/?search=${q}&idTipoStock=${TIPO_STOCK.CON_COMPROBANTE}`);
@@ -34,9 +47,13 @@ const PublicProductPicker = ({ onChooseProduct, alias, onUpdateAlias }) => {
 
     useEffect(() => {
         fetchProductos("");
+        fetchCombos("");
     }, []);
 
-    const debounceSearch = useCallback(debounce(fetchProductos, 500), []);
+    const debounceSearch = useCallback(debounce((q) => {
+        fetchProductos(q)
+        fetchCombos(q)
+    }, 500), []);
 
     const handleSearch = (e) => {
         const value = e.target.value.trim();
@@ -45,13 +62,18 @@ const PublicProductPicker = ({ onChooseProduct, alias, onUpdateAlias }) => {
         debounceSearch(value);
     };
 
+    const onChooseCombo = (productos) => {
+        onChooseProduct(...productos)
+    }
+
     return <>
         <div className="input-container">
             <input type="text" placeholder="Buscar" className="input" value={searchTerm} onChange={handleSearch} autoFocus/>
-            <input type="text" placeholder="Alias" className="input" value={alias} onChange={(e) => onUpdateAlias(e.target.value)}/>
+            <input type="text" placeholder="Alias" className="input" value={alias || ""} onChange={(e) => onUpdateAlias(e.target.value)}/>
         </div>
 
         <div className="productos">
+            { combos.map((c, i) => <PublicCombo key={i} combo={c} onChooseCombo={onChooseCombo} />)} 
             { products.map((p, i) => <PublicProduct key={i} product={p} onChooseProduct={() => onChooseProduct(p)} />)}
         </div>
     </>
