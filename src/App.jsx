@@ -8,7 +8,7 @@ import { isString } from 'lodash';
 const LastLogoRefreshToken = "last_logo_refresh"
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [sessionInfo, setSessionInfo] = useState({
     Ruc: '',
     imagenesUrl: '',
@@ -84,13 +84,13 @@ function App() {
     return Math.floor(sincesMs / (1000 * 60)) > 5;
   }
   
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
   
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
 
   return (
     <div>
@@ -104,10 +104,10 @@ function App() {
           src={logoUrl}
           alt="LOGO EMPRESA"
           className="logo-empresa"
-          onClick={openModal}
+          // onClick={openModal}
         />
       </div>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <div
           className="modal"
           onDoubleClick={closeModal}
@@ -119,7 +119,7 @@ function App() {
             </video>
           </div>
         </div>
-      )}
+      )} */}
       <footer className="footer1">
         <Link to="/productos" className="btn-continue1">CONTINUAR</Link>
       </footer>
