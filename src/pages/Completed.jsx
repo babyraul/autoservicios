@@ -62,7 +62,7 @@ const Completed = () => {
                     Cantidad: item.Cantidad,
                     Total: item.Total,
                 })),
-                IdTipoDocumentoSunat: 1,
+                IdTipoDocumentoSunat: 4,
                 IdCliente: clientData?.IdCliente,
                 Total: totales.totalMonto,
                 alias: alias,
